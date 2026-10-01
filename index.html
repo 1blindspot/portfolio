@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aly Quintero — AI Filmmaker, Video Editor & Motion Designer</title>
+  <meta name="description" content="Portfolio of Aly Quintero — AI Filmmaker, Video Editor & Motion Designer. Editing, reels, ads, VSLs, motion graphics and AI.">
+  <meta name="theme-color" content="#0A0A0A">
+  <meta property="og:title" content="Aly Quintero — AI Filmmaker, Video Editor & Motion Designer">
+  <meta property="og:description" content="Video editing, reels, ads, VSLs, motion graphics and AI that converts.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:locale:alternate" content="es_PE">
+  <link rel="canonical" href="https://alyquintero.com/">
+
+  <!-- Favicon (ice-blue AQ monogram) -->
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230A0A0A'/%3E%3Ctext x='32' y='44' font-family='Arial,Helvetica,sans-serif' font-size='32' font-weight='700' fill='%2364B5F6' text-anchor='middle'%3EAQ%3C/text%3E%3C/svg%3E">
+
+  <!-- Structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Aly Quintero",
+    "jobTitle": "AI Filmmaker, Video Editor & Motion Designer",
+    "email": "mailto:alyquinterocg@gmail.com",
+    "knowsAbout": ["Video Editing", "Motion Design", "AI Filmmaking", "Color Grading", "Ads Production"]
+  }
+  </script>
+
+  <!-- Fonts: Montserrat (bold display) + Inter (body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Scroll progress -->
+  <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+  <!-- Custom cursor -->
+  <div class="cursor-arrow" id="cursorArrow" aria-hidden="true">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+      <path d="M5 3l14 9-7 2-3 7z" fill="var(--accent)" stroke="var(--accent)" stroke-width="1" stroke-linejoin="round"/>
+    </svg>
+  </div>
+
+  <!-- Navigation -->
+  <nav class="nav" id="nav">
+    <div class="nav-pill">
+      <a href="./index.html" class="nav-logo">AQ</a>
+      <div class="nav-divider"></div>
+      <ul class="nav-links">
+        <li><a href="#work" class="nav-link" data-section="work" data-i18n="nav.work">Work</a></li>
+        <li><a href="#contact" class="nav-link" data-section="contact" data-i18n="nav.contact">Contact</a></li>
+        <li><a href="#about" class="nav-link" data-section="about" data-i18n="nav.about">About</a></li>
+      </ul>
+    </div>
+    <div class="nav-right">
+      <!-- Language Toggle -->
+      <button class="lang-toggle" id="langToggle" aria-label="Toggle language">
+        <span class="lang-label" id="langEN">EN</span>
+        <span class="lang-sep">/</span>
+        <span class="lang-label" id="langES">ES</span>
+      </button>
+      <a href="mailto:alyquinterocg@gmail.com" class="nav-cta-pill"><span data-i18n="nav.hire">HIRE ME</span></a>
+    </div>
+  </nav>
+
+  <!-- Hero (v3: typographic, no background video) -->
+  <section class="hero">
+    <div class="hero-glow" aria-hidden="true"></div>
+    <div class="hero-grid" aria-hidden="true"></div>
+    <div class="hero-grain" aria-hidden="true"></div>
+    <div class="hero-content">
+      <p class="hero-status hero-enter" style="--delay: 0"><span class="status-dot" aria-hidden="true"></span><span data-i18n="hero.status">AVAILABLE FOR NEW PROJECTS — REPLIES WITHIN 24H</span></p>
+      <p class="hero-label hero-enter" style="--delay: 1">
+        <span data-i18n="hero.role1">VIDEO EDITOR</span>
+        <span class="hero-label-sep">/</span>
+        <span data-i18n="hero.role2">MOTION DESIGNER</span>
+        <span class="hero-label-sep">/</span>
+        <span data-i18n="hero.role3">AI FILMMAKER</span>
+      </p>
+      <h1 class="hero-name hero-enter" style="--delay: 2">
+        <span class="hero-line">ALY</span>
+        <span class="hero-line">QUINTERO</span>
+      </h1>
+      <p class="hero-tagline hero-enter" style="--delay: 3" data-i18n="hero.tagline">Crafting visual stories through editing, motion design<br>&amp; AI — frame by frame.</p>
+      <div class="hero-actions hero-enter" style="--delay: 4">
+        <a href="#work" class="btn btn-primary" data-i18n="hero.showreel">&#9654; WATCH MY WORK</a>
+        <a href="mailto:alyquinterocg@gmail.com" class="btn btn-ghost" data-i18n="hero.hire">HIRE ME &rarr;</a>
+      </div>
+      <div class="hero-scroll hero-enter" style="--delay: 5">
+        <span>SCROLL</span>
+        <div class="scroll-line"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Trusted-by marquee (v3) -->
+  <section class="marquee" aria-label="Trusted by">
+    <p class="marquee-label">// <span data-i18n="trusted.label">TRUSTED BY CREATORS &amp; BRANDS</span></p>
+    <div class="marquee-wrap">
+      <div class="marquee-track">
+        <div class="marquee-group">
+          <span class="marquee-item marquee-item--yt client-item" data-client="thatisimpossible"><img src="img/clients/thatisimpossible.jpg" alt="">THAT IS IMPOSSIBLE<span class="mq-badge mq-badge--yt" role="img" aria-label="YouTube channel"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z" fill="#fff"/></svg></span></span>
+          <span class="marquee-item marquee-item--yt client-item" data-client="jaymez"><img src="img/clients/jaymez.jpg" alt="">JAYMEZ<span class="mq-badge mq-badge--yt" role="img" aria-label="YouTube channel"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z" fill="#fff"/></svg></span></span>
+          <span class="marquee-item marquee-item--co client-item" data-client="eliteceos"><img src="img/clients/eliteceos.png" alt="">ELITE CEOs<span class="mq-badge mq-badge--co" role="img" aria-label="Company"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" fill="#fff"/></svg></span></span>
+          <span class="marquee-item marquee-item--co client-item" data-client="v2visuals"><img src="img/clients/v2visuals.png" alt="">V2 VISUALS<span class="mq-badge mq-badge--co" role="img" aria-label="Company"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" fill="#fff"/></svg></span></span>
+          <span class="marquee-item marquee-item--co client-item" data-client="phunware"><img src="img/clients/phunware.png" alt="">PHUNWARE<span class="mq-badge mq-badge--co" role="img" aria-label="Company"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" fill="#fff"/></svg></span></span>
+          <span class="marquee-item marquee-item--co client-item" data-client="adrop"><img src="img/clients/adrop.png" alt="">ADDROP<span class="mq-badge mq-badge--co" role="img" aria-label="Company"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" fill="#fff"/></svg></span></span>
+        </div>
+        <div class="marquee-group" aria-hidden="true">
+          <span class="marquee-item marquee-item--yt client-item" data-client="thatisimpossible"><img src="img/clients/thatisimpossible.jpg" alt="">THAT IS IMPOSSIBLE<span class="mq-badge mq-badge--yt"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="#fff"/></svg></span></span>
+          <span class="marquee-item marquee-item--yt client-item" data-client="jaymez"><img src="img/clients/jaymez.jpg" alt="">JAYMEZ<span class="mq-badge mq-badge--yt"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="#fff"/></svg></span></span>
+          <span class="marquee-item marquee-item--co client-item" data-client="eliteceos"><img src="img/clients/eliteceos.png" alt="">ELITE CEOs<span class="mq-badge mq-badge--co"><svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" fill="#fff"/></svg></span></span>
+          <span class="marquee-item marquee-item--co client-item" data-client="v2visuals"><img src="img/clients/v2visuals.png" alt="">V2 VISUALS<span class="mq-badge mq-badge--co"><svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" fill="#fff"/></svg></span></span>
+          <span class="marquee-item marquee-item--co client-item" data-client="phunware"><img src="img/clients/phunware.png" alt="">PHUNWARE<span class="mq-badge mq-badge--co"><svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" fill="#fff"/></svg></span></span>
+          <span class="marquee-item marquee-item--co client-item" data-client="adrop"><img src="img/clients/adrop.png" alt="">ADDROP<span class="mq-badge mq-badge--co"><svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" fill="#fff"/></svg></span></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Work -->
+  <section class="work" id="work">
+    <div class="work-header fade-up">
+      <h2 class="section-title" data-i18n="work.title">MY<br>WORK</h2>
+      <span class="section-label"><span class="section-num">(01)</span> // <span data-i18n="work.label">WORK</span></span>
+
+      <!-- Filter bar — clickable categories -->
+      <div class="filter-bar" id="filterBar">
+        <button class="filter-btn active" data-filter="all" data-i18n="filter.all">ALL</button>
+        <button class="filter-btn" data-filter="reels" data-i18n="filter.reels">REELS</button>
+        <button class="filter-btn" data-filter="ads" data-i18n="filter.ads">ADS</button>
+        <button class="filter-btn" data-filter="ai" data-i18n="filter.ai">AI ADS</button>
+        <button class="filter-btn" data-filter="eventcorp" data-i18n="filter.eventcorp">EVENT &amp; CORPORATE</button>
+        <button class="filter-btn" data-filter="motion" data-i18n="filter.motion">MOTION DESIGN</button>
+        <button class="filter-btn" data-filter="youtube" data-i18n="filter.youtube">YOUTUBE</button>
+        <button class="filter-btn" data-filter="vsl" data-i18n="filter.vsl">VSL</button>
+        <button class="filter-btn" data-filter="podcast" data-i18n="filter.podcast">PODCAST</button>
+      </div>
+    </div>
+
+    <div class="work-grid" id="workGrid">
+      <!-- REELS -->
+      <a href="reels.html" class="work-card fade-up" data-category="reels">
+        <div class="card-media ar-9x16">
+          <img src="video/cover-reels.jpg" alt="" loading="lazy">
+          <span class="card-label" data-i18n="cat.reels">REELS</span>
+          <span class="card-enter" aria-hidden="true">&#8599;</span>
+        </div>
+      </a>
+
+      <!-- ADS -->
+      <a href="ads.html" class="work-card fade-up" data-category="ads">
+        <div class="card-media ar-4x5">
+          <img src="video/cover-ads.jpg" alt="" loading="lazy">
+          <span class="card-label" data-i18n="cat.ads">ADS</span>
+          <span class="card-enter" aria-hidden="true">&#8599;</span>
+        </div>
+      </a>
+
+      <!-- AI ADS -->
+      <a href="ai.html" class="work-card fade-up" data-category="ai">
+        <div class="card-media ar-4x5">
+          <img src="video/cover-ai.jpg" alt="" loading="lazy">
+          <span class="card-label" data-i18n="cat.ai">AI ADS</span>
+          <span class="card-enter" aria-hidden="true">&#8599;</span>
+        </div>
+      </a>
+
+      <!-- EVENT & CORPORATE -->
+      <a href="eventcorp.html" class="work-card fade-up" data-category="eventcorp">
+        <div class="card-media ar-16x9">
+          <img src="video/cover-eventcorp.jpg" alt="" loading="lazy">
+          <span class="card-label" data-i18n="cat.eventcorp">EVENT &amp; CORPORATE</span>
+          <span class="card-enter" aria-hidden="true">&#8599;</span>
+        </div>
+      </a>
+
+      <!-- MOTION DESIGN -->
+      <a href="motion.html" class="work-card fade-up" data-category="motion">
+        <div class="card-media card-media--empty">
+          <span class="card-label" data-i18n="cat.motion">MOTION DESIGN</span>
+          <span class="card-enter" aria-hidden="true">&#8599;</span>
+        </div>
+      </a>
+
+      <!-- YOUTUBE -->
+      <a href="youtube.html" class="work-card fade-up" data-category="youtube">
+        <div class="card-media">
+          <img src="video/cover-youtube.jpg" alt="" loading="lazy">
+          <span class="card-label">YOUTUBE</span>
+          <span class="card-enter" aria-hidden="true">&#8599;</span>
+        </div>
+      </a>
+
+      <!-- VSL -->
+      <a href="vsl.html" class="work-card fade-up" data-category="vsl">
+        <div class="card-media ar-16x9">
+          <img src="video/cover-vsl.jpg" alt="" loading="lazy">
+          <span class="card-label">VSL</span>
+          <span class="card-enter" aria-hidden="true">&#8599;</span>
+        </div>
+      </a>
+
+      <!-- PODCAST / EXPLAINER -->
+      <a href="podcast.html" class="work-card fade-up" data-category="podcast">
+        <div class="card-media card-media--empty">
+          <span class="card-label" data-i18n="cat.podcast">PODCAST</span>
+          <span class="card-enter" aria-hidden="true">&#8599;</span>
+        </div>
+      </a>
+    </div>
+
+    <!-- Featured panel: 5 highlighted videos per category (v3) -->
+    <div class="filter-panel" id="filterPanel" hidden></div>
+  </section>
+
+  <!-- Contact -->
+  <section class="contact" id="contact">
+    <div class="contact-inner fade-up">
+      <span class="section-label"><span class="section-num">(02)</span> // <span data-i18n="contact.label">CONTACT</span></span>
+      <h2 class="section-title" data-i18n="contact.title">LET'S WORK TOGETHER</h2>
+      <p class="contact-sub" data-i18n="contact.sub">Find me on these platforms — let's start something great.</p>
+      <div class="contact-links">
+        <a class="contact-card contact-card--upwork" href="https://www.upwork.com/freelancers/~01123a19771ae1f132?mp_source=share" target="_blank" rel="noopener noreferrer">
+          <svg class="contact-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M18.561 13.158c-1.102 0-2.135-.467-3.074-1.227l.228-1.076.008-.042c.207-1.143.849-3.06 2.839-3.06 1.492 0 2.703 1.212 2.703 2.703-.001 1.489-1.212 2.702-2.704 2.702zm0-8.14c-2.539 0-4.51 1.649-5.31 4.366-1.22-1.834-2.148-4.036-2.687-5.892H7.828v7.112c-.002 1.406-1.141 2.546-2.547 2.548-1.405-.002-2.543-1.143-2.545-2.548V3.492H0v7.112c0 2.914 2.37 5.303 5.281 5.303 2.913 0 5.283-2.389 5.283-5.303v-1.19c.529 1.107 1.182 2.229 1.974 3.221l-1.673 7.873h2.797l1.213-5.71c1.063.679 2.285 1.109 3.686 1.109 3 0 5.439-2.452 5.439-5.45 0-3-2.439-5.439-5.439-5.439z"/></svg>
+          <span class="contact-card-name">UPWORK</span>
+          <span class="contact-card-arrow">&#8599;</span>
+        </a>
+        <a class="contact-card contact-card--linkedin" href="https://www.linkedin.com/in/alyquintero/" target="_blank" rel="noopener noreferrer">
+          <svg class="contact-icon" viewBox="0 0 448 512" aria-hidden="true"><path d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z"/></svg>
+          <span class="contact-card-name">LINKEDIN</span>
+          <span class="contact-card-arrow">&#8599;</span>
+        </a>
+        <a class="contact-card contact-card--behance" href="https://www.behance.net/gallery/222380657/Portfolio-Video-Editor" target="_blank" rel="noopener noreferrer">
+          <svg class="contact-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M16.969 16.927a2.561 2.561 0 0 0 1.901.677 2.501 2.501 0 0 0 1.531-.475c.362-.235.636-.584.779-.99h2.585a5.091 5.091 0 0 1-1.9 2.896 5.292 5.292 0 0 1-3.091.88 5.839 5.839 0 0 1-2.284-.433 4.871 4.871 0 0 1-1.723-1.211 5.657 5.657 0 0 1-1.08-1.874 7.057 7.057 0 0 1-.383-2.393c-.005-.8.129-1.595.396-2.349a5.313 5.313 0 0 1 5.088-3.604 4.87 4.87 0 0 1 2.376.563c.661.362 1.231.87 1.668 1.485a6.2 6.2 0 0 1 .943 2.133c.194.821.263 1.666.205 2.508h-7.699c-.063.79.184 1.574.688 2.187ZM6.947 4.084a8.065 8.065 0 0 1 1.928.198 4.29 4.29 0 0 1 1.49.638c.418.303.748.711.958 1.182.241.579.357 1.203.341 1.83a3.506 3.506 0 0 1-.506 1.961 3.726 3.726 0 0 1-1.503 1.287 3.588 3.588 0 0 1 2.027 1.437c.464.747.697 1.615.67 2.494a4.593 4.593 0 0 1-.423 2.032 3.945 3.945 0 0 1-1.163 1.413 5.114 5.114 0 0 1-1.683.807 7.135 7.135 0 0 1-1.928.259H0V4.084h6.947Zm-.235 12.9c.308.004.616-.029.916-.099a2.18 2.18 0 0 0 .766-.332c.228-.158.411-.371.534-.619.142-.317.208-.663.191-1.009a2.08 2.08 0 0 0-.642-1.715 2.618 2.618 0 0 0-1.696-.505h-3.54v4.279h3.471Zm13.635-5.967a2.13 2.13 0 0 0-1.654-.619 2.336 2.336 0 0 0-1.163.259 2.474 2.474 0 0 0-.738.62 2.359 2.359 0 0 0-.396.792c-.074.239-.12.485-.137.734h4.769a3.239 3.239 0 0 0-.679-1.785l-.002-.001Zm-13.813-.648a2.254 2.254 0 0 0 1.423-.433c.399-.355.607-.88.56-1.413a1.916 1.916 0 0 0-.178-.891 1.298 1.298 0 0 0-.495-.533 1.851 1.851 0 0 0-.711-.274 3.966 3.966 0 0 0-.835-.073H3.241v3.631h3.293v-.014ZM21.62 5.122h-5.976v1.527h5.976V5.122Z"/></svg>
+          <span class="contact-card-name">BEHANCE</span>
+          <span class="contact-card-arrow">&#8599;</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section class="about" id="about">
+    <div class="about-inner fade-up">
+      <span class="section-label"><span class="section-num">(03)</span> // <span data-i18n="about.label">ABOUT</span></span>
+      <p class="about-text" data-i18n="about.text">I'm Aly Quintero — Video Editor, Motion Designer &amp; AI Filmmaker crafting visual content for brands, coaches, and creators worldwide.
+        <br><br>
+        I handle everything from Facebook Ads and YouTube long-form to TikTok Reels and AI-generated campaigns. My workflow covers the full pipeline: editing, color grading, audio mixing, motion graphics, and AI-assisted production.
+        <br><br>
+        If your project needs that level of precision, let's talk.</p>
+      <a href="mailto:alyquinterocg@gmail.com" class="about-cta">
+        <span data-i18n="about.cta">GET IN TOUCH</span>
+        <span class="cta-arrow">&rarr;</span>
+      </a>
+      <p class="cta-note">// <span data-i18n="about.ctaNote">NO FORMS. JUST EMAIL — I READ EVERY ONE.</span></p>
+
+      <p class="about-tools">
+        <span class="tool">Premiere Pro<span class="tool-logo" aria-hidden="true"><span class="tool-mark">Pr</span><span class="tool-text"><span class="tool-name">Premiere Pro</span><span class="tool-desc" data-i18n="tool.pr">Where I cut every project, start to finish</span></span></span></span>
+        <span class="sep">/</span>
+        <span class="tool">After Effects<span class="tool-logo" aria-hidden="true"><span class="tool-mark">Ae</span><span class="tool-text"><span class="tool-name">After Effects</span><span class="tool-desc" data-i18n="tool.ae">Where motion graphics come to life</span></span></span></span>
+        <span class="sep">/</span>
+        <span class="tool">DaVinci Resolve<span class="tool-logo" aria-hidden="true"><span class="tool-mark tool-mark--svg"><svg viewBox="0 0 24 24" role="img"><title>DaVinci Resolve</title><path d="M17.621 0 5.977.004c-1.37 0-2.756.345-3.762 1.11a4.925 4.925 0 0 0-1.61 2.003C.233 3.93 0 5.02 0 5.951l.012 12.2c.002 1.604.479 3.057 1.461 4.112.984 1.056 2.462 1.683 4.331 1.691L16.856 24c1.26.005 3.095-.036 4.303-.714 1.075-.605 2.025-1.556 2.497-2.984.278-.84.345-2.084.344-3.147l-.021-11.13c-.002-.888-.15-2.023-.547-2.934-.425-.976-1.181-1.815-2.322-2.425C20.353.26 19.123 0 17.622 0zm0 .93c1.378 0 2.538.295 3.04.565.977.523 1.544 1.166 1.889 1.96.315.721.47 1.793.473 2.572l.018 11.13c.002 1.013-.097 2.257-.298 2.86-.396 1.202-1.146 1.946-2.063 2.462-.814.457-2.612.593-3.82.588l-11.05-.044c-1.657-.007-2.832-.534-3.626-1.386-.792-.851-1.212-2.06-1.212-3.485L.999 5.95c0-.829.196-1.827.474-2.437.345-.757.75-1.207 1.365-1.674C3.585 1.27 4.868.97 6.08.97zm-5.66 3.423c-1.976.089-3.204 1.658-3.214 3.29.019 1.443 1.635 3.481 2.884 4.53.12.099.154.109.33.18.062.025.198-.047.327-.135.36-.245.993-.947 1.648-1.738a7.67 7.67 0 0 0 1.031-1.683c.409-.89.261-1.599.235-1.888a3.983 3.983 0 0 0-.99-1.692 3.36 3.36 0 0 0-2.251-.864zm4.172 7.922a10.185 10.185 0 0 0-3.244.61c-.15.058-.26.1-.374.17-.057.036-.11.135-.105.292.017.433.29 1.278.624 2.27.384 1.135 1.066 2.27 1.844 2.74a3.23 3.23 0 0 0 2.53.342c.832-.243 1.595-.868 1.962-1.546.986-1.818.19-3.548-1.121-4.417-.447-.296-1.133-.445-1.89-.46-.074 0-.15-.002-.226-.001zm-8.432.038a6.201 6.201 0 0 0-.752.047c-.596.078-.932.273-1.29.51a3.177 3.177 0 0 0-1.365 1.979c-.075.552-.086 1.053.033 1.507.433 1.389 1.326 2.222 2.847 2.452.636.028 1.37-.063 1.99-.45 1.269-.782 2.08-3.17 2.412-4.742.053-.176.035-.357-.013-.42-.005-.067-.044-.113-.19-.183-.398-.192-1.32-.417-2.375-.6a7.68 7.68 0 0 0-1.297-.1z"/></svg></span><span class="tool-text"><span class="tool-name">DaVinci Resolve</span><span class="tool-desc" data-i18n="tool.davinci">Color grading and the final look of every video</span></span></span></span>
+        <span class="sep">/</span>
+        <span class="tool">Photoshop<span class="tool-logo" aria-hidden="true"><span class="tool-mark">Ps</span><span class="tool-text"><span class="tool-name">Photoshop</span><span class="tool-desc" data-i18n="tool.ps">Thumbnails, retouching and visual polish</span></span></span></span>
+        <span class="sep">/</span>
+        <span class="tool">Melius<span class="tool-logo" aria-hidden="true"><span class="tool-mark">M</span><span class="tool-text"><span class="tool-name">Melius</span><span class="tool-desc" data-i18n="tool.melius">AI-assisted production workflows</span></span></span></span>
+        <span class="sep">/</span>
+        <span class="tool">Higgsfield<span class="tool-logo" aria-hidden="true"><span class="tool-mark">H</span><span class="tool-text"><span class="tool-name">Higgsfield</span><span class="tool-desc" data-i18n="tool.higgsfield">Cinematic AI camera moves</span></span></span></span>
+        <span class="sep">/</span>
+        <span class="tool">NanoBanana<span class="tool-logo" aria-hidden="true"><span class="tool-mark">NB</span><span class="tool-text"><span class="tool-name">NanoBanana</span><span class="tool-desc" data-i18n="tool.nano">AI image generation and editing</span></span></span></span>
+        <span class="sep">/</span>
+        <span class="tool">Seedance<span class="tool-logo" aria-hidden="true"><span class="tool-mark">S</span><span class="tool-text"><span class="tool-name">Seedance</span><span class="tool-desc" data-i18n="tool.seedance">AI video generation for my ad concepts</span></span></span></span>
+      </p>
+      <p class="about-email">
+        <span data-i18n="about.contact">Contact:</span>
+        <a href="mailto:alyquinterocg@gmail.com" class="about-email-link">alyquinterocg@gmail.com</a>
+        <button type="button" class="copy-email-btn" data-copy-email aria-label="Copy email"><span data-i18n="copy.email">COPY</span></button>
+      </p>
+    </div>
+  </section>
+
+  <!-- Client description modal -->
+  <div class="client-modal" id="clientModal" aria-hidden="true">
+    <div class="client-modal-backdrop" data-close-modal></div>
+    <div class="client-modal-card" role="dialog" aria-modal="true" aria-labelledby="clientModalTitle">
+      <button type="button" class="client-modal-close" data-close-modal aria-label="Close">&times;</button>
+      <span class="client-modal-label">// <span data-i18n="clients.modalLabel">CLIENT</span></span>
+      <h3 class="client-modal-title" id="clientModalTitle"></h3>
+      <div class="client-modal-body">
+        <img class="client-modal-logo" id="clientModalLogo" alt="" hidden>
+        <p class="client-modal-text" id="clientModalText"></p>
+      </div>
+      <div class="client-modal-links" id="clientModalLinks"></div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <span>&copy; 2026 ALY QUINTERO</span>
+    <span>VIDEO EDITOR, MOTION DESIGNER &amp; AI FILMMAKER</span>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
