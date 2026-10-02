@@ -79,6 +79,9 @@
       'count.20': '20 PROYECTOS',
       'count.2': '2 PROYECTOS',
       'count.3': '3 PROYECTOS',
+      'count.9': '9 PROYECTOS',
+      'count.16': '16 PROYECTOS',
+      'count.19': '19 PROYECTOS',
       'proj.1': 'PROYECTO 1',
       'proj.2': 'PROYECTO 2',
       'proj.3': 'PROYECTO 3',
@@ -89,6 +92,12 @@
       'proj.8': 'PROYECTO 8',
       'proj.9': 'PROYECTO 9',
       'proj.10': 'PROYECTO 10',
+      'proj.11': 'PROYECTO 11',
+      'proj.12': 'PROYECTO 12',
+      'proj.13': 'PROYECTO 13',
+      'proj.14': 'PROYECTO 14',
+      'proj.15': 'PROYECTO 15',
+      'proj.16': 'PROYECTO 16',
       'clients.desc.eliteceos': 'Plataforma de coaching que ha generado más de $100M en ingresos y ayudado a sus clientes a ganar más de $1B — ofertas de alto ticket, copywriting, ads, ventas, embudos y operaciones para coaches de salud, riqueza y relaciones.',
       'clients.desc.v2visuals': 'Empresa de producción de video con base en San Diego, destacada en CNBC con más de 7 años creando medios de alto impacto: producción y edición de video, motion design, fotografía, creatividad para ads, branding y servicios de IA para marcas y eventos.',
       'clients.desc.phunware': 'Empresa de tecnología hotelera detrás del Guest Intelligence Platform — concierge con IA, wayfinding y datos de ubicación desplegados en resorts de renombre como Atlantis Paradise Island y Wailea Beach Resort, donde la adopción de la app supera el 70% durante la estadía.',
@@ -176,6 +185,9 @@
       'count.20': '20 PROJECTS',
       'count.2': '2 PROJECTS',
       'count.3': '3 PROJECTS',
+      'count.9': '9 PROJECTS',
+      'count.16': '16 PROJECTS',
+      'count.19': '19 PROJECTS',
       'proj.1': 'VIDEO 1',
       'proj.2': 'VIDEO 2',
       'proj.3': 'VIDEO 3',
@@ -186,6 +198,12 @@
       'proj.8': 'VIDEO 8',
       'proj.9': 'VIDEO 9',
       'proj.10': 'VIDEO 10',
+      'proj.11': 'VIDEO 11',
+      'proj.12': 'VIDEO 12',
+      'proj.13': 'VIDEO 13',
+      'proj.14': 'VIDEO 14',
+      'proj.15': 'VIDEO 15',
+      'proj.16': 'VIDEO 16',
       'clients.desc.eliteceos': 'Coaching platform that has generated $100M+ in revenue and helped its clients earn $1B+ — high-ticket offers, copywriting, ads, sales, funnels, and operations for coaches in the health, wealth, and relationship niches.',
       'clients.desc.v2visuals': 'San Diego-based video production company, featured on CNBC, with 7+ years crafting high-impact media: video production and editing, motion design, photography, ad creative, branding, and AI services for brands and events.',
       'clients.desc.phunware': 'Hospitality technology company behind the Guest Intelligence Platform — AI concierge, wayfinding, and location data deployed at renowned resorts like Atlantis Paradise Island and Wailea Beach Resort, where app adoption tops 70% during guest stays.',
@@ -334,77 +352,77 @@
     reels: {
       href: 'reels.html',
       items: [
-        { drive: '1up1usn3P9nrIxW7n_1J4TQJbmKsSE5Ub', poster: 'img/work/reels-1.jpg', label: 'ELEMENTERRE · REEL', ar: 'ar-9x16' },
-        { drive: '1ffmq7tNKYc8elZs-m18pW4MRzQ6Nlnzq', poster: 'img/work/reels-2.jpg', label: 'V2 VISUALS · REEL 1', ar: 'ar-9x16' },
-        { drive: '1y3Nf9NS_OmBVj65FB2jQrd7HV1fmA_ba', poster: 'img/work/reels-3.jpg', label: 'V2 VISUALS · REEL 2', ar: 'ar-9x16' },
-        { drive: '1ra7eIMXq9HMQYcFVPGIpUjxEmEnOSzAY', poster: 'img/work/reels-4.jpg', label: 'V2 VISUALS · REEL 1 V2', ar: 'ar-9x16' },
-        { drive: '1YrE0Dbm0QlgLxZd5Y99XS7mE72_CIMQE', poster: 'img/work/reels-5.jpg', label: 'V2 VISUALS · REEL 3', ar: 'ar-9x16' }
+        { drive: '1up1usn3P9nrIxW7n_1J4TQJbmKsSE5Ub', poster: 'img/work/reels-1.jpg', ar: 'ar-9x16', t: 'VIDEO 1', tKey: 'proj.1', c: 'V2 VISUALS' },
+        { drive: '1ffmq7tNKYc8elZs-m18pW4MRzQ6Nlnzq', poster: 'img/work/reels-2.jpg', ar: 'ar-9x16', t: 'VIDEO 2', tKey: 'proj.2', c: 'V2 VISUALS' },
+        { drive: '1y3Nf9NS_OmBVj65FB2jQrd7HV1fmA_ba', poster: 'img/work/reels-3.jpg', ar: 'ar-9x16', t: 'VIDEO 3', tKey: 'proj.3', c: 'V2 VISUALS' },
+        { drive: '1ra7eIMXq9HMQYcFVPGIpUjxEmEnOSzAY', poster: 'img/work/reels-4.jpg', ar: 'ar-9x16', t: 'VIDEO 4', tKey: 'proj.4', c: 'V2 VISUALS' },
+        { drive: '1YrE0Dbm0QlgLxZd5Y99XS7mE72_CIMQE', poster: 'img/work/reels-5.jpg', ar: 'ar-9x16', t: 'VIDEO 5', tKey: 'proj.5', c: 'V2 VISUALS' }
       ]
     },
     ads: {
       href: 'ads.html',
       grid: 'cols5',
       items: [
-        { drive: '1xtMmAxQDsTOyK2xegeUwDTuJKxuP1k9d', poster: 'img/work/ads-1.jpg', label: 'KYLE HENRIS · AD', ar: 'ar-4x5' },
-        { drive: '1FRIiYrqBr5SxAM11talx5X003uQNhJPs', poster: 'img/work/ads-2.jpg', label: 'ELITE CEOs · AD', ar: 'ar-4x5' },
-        { drive: '1cXA2ZAm8W6V2hp1YWvJoxa-fwD_hKJFu', poster: 'img/work/ads-3.jpg', label: 'TANNER CHIDESTER · AD', ar: 'ar-4x5' },
-        { drive: '1dvqRrVEOpT9o82AZlTB1DK8h0lP6vT46', poster: 'img/work/ads-4.jpg', label: 'THEODORE STERN · AD', ar: 'ar-4x5' },
-        { drive: '1yOo_e-wxUjPHTFgNr5SGlvL_Ml4pAi3j', poster: 'img/work/ads-5.jpg', label: 'ORONDE JONES · AD', ar: 'ar-4x5' }
+        { drive: '1xtMmAxQDsTOyK2xegeUwDTuJKxuP1k9d', poster: 'img/work/ads-1.jpg', ar: 'ar-4x5', t: 'VIDEO 1', tKey: 'proj.1', c: 'KYLE HENRIS' },
+        { drive: '1FRIiYrqBr5SxAM11talx5X003uQNhJPs', poster: 'img/work/ads-2.jpg', ar: 'ar-4x5', t: 'VIDEO 2', tKey: 'proj.2', c: 'ELITE CEOs' },
+        { drive: '1cXA2ZAm8W6V2hp1YWvJoxa-fwD_hKJFu', poster: 'img/work/ads-3.jpg', ar: 'ar-4x5', t: 'VIDEO 3', tKey: 'proj.3', c: 'TANNER CHIDESTER' },
+        { drive: '1dvqRrVEOpT9o82AZlTB1DK8h0lP6vT46', poster: 'img/work/ads-4.jpg', ar: 'ar-4x5', t: 'VIDEO 4', tKey: 'proj.4', c: 'THEODORE STERN' },
+        { drive: '1yOo_e-wxUjPHTFgNr5SGlvL_Ml4pAi3j', poster: 'img/work/ads-5.jpg', ar: 'ar-4x5', t: 'VIDEO 5', tKey: 'proj.5', c: 'ORONDE JONES' }
       ]
     },
     ai: {
       href: 'ai.html',
       items: [
-        { drive: '1vpjDgtRy8tSdftDAn-V89nsXiaNsmGD2', poster: 'img/work/ai-5.jpg', label: 'ADDROP · AI AD 5', ar: 'ar-9x16' },
-        { drive: '1_WPbWZ4DSNh91X1mJyK9zjcDmh46i8Te', poster: 'img/work/ai-2.jpg', label: 'ADDROP · AI AD 2', ar: 'ar-9x16' },
-        { drive: '1BZKcZv-tehrvDTqh6BzlsOs8yG-Id_iG', poster: 'img/work/ai-3.jpg', label: 'ADDROP · AI AD 3', ar: 'ar-9x16' },
-        { drive: '1weQYakO_Qo0rmEbNt-GWp-iY3SujJXj7', poster: 'img/work/ai-7.jpg', label: 'ADDROP · AI AD 7', ar: 'ar-9x16' },
-        { drive: '1hY1A3BWYl2zWyS51LxbJCny5iG4rdGCK', poster: 'img/work/ai-1.jpg', label: 'ADDROP · AI AD 1', ar: 'ar-9x16' }
+        { drive: '1vpjDgtRy8tSdftDAn-V89nsXiaNsmGD2', poster: 'img/work/ai-5.jpg', ar: 'ar-9x16', t: 'VIDEO 1', tKey: 'proj.1', c: 'ADDROP' },
+        { drive: '1_WPbWZ4DSNh91X1mJyK9zjcDmh46i8Te', poster: 'img/work/ai-2.jpg', ar: 'ar-9x16', t: 'VIDEO 2', tKey: 'proj.2', c: 'ADDROP' },
+        { drive: '1BZKcZv-tehrvDTqh6BzlsOs8yG-Id_iG', poster: 'img/work/ai-3.jpg', ar: 'ar-9x16', t: 'VIDEO 3', tKey: 'proj.3', c: 'ADDROP' },
+        { drive: '1weQYakO_Qo0rmEbNt-GWp-iY3SujJXj7', poster: 'img/work/ai-7.jpg', ar: 'ar-9x16', t: 'VIDEO 4', tKey: 'proj.4', c: 'ADDROP' },
+        { drive: '1hY1A3BWYl2zWyS51LxbJCny5iG4rdGCK', poster: 'img/work/ai-1.jpg', ar: 'ar-9x16', t: 'VIDEO 5', tKey: 'proj.5', c: 'ADDROP' }
       ]
     },
     eventcorp: {
       href: 'eventcorp.html',
       grid: 'wide',
       items: [
-        { drive: '1rx8SK2V4S0Ng_nZynZpHZWn4P6YxqfCo', poster: 'img/work/ec-1.jpg', label: 'A BEAUTIFUL LIFE · PROMO', ar: 'ar-16x9' },
-        { drive: '1KGnHNExp_-w_Vw90CYTwdXQCx4saThbg', poster: 'img/work/ec-2.jpg', label: 'ACADIA · EVENT FILM', ar: 'ar-16x9' },
-        { drive: '1kYbUNuI6Db5pXNOFBRm5ULfmOMOus8dv', poster: 'img/work/ec-3.jpg', label: 'APARTMENT LIST · EVENT FILM', ar: 'ar-16x9' },
-        { drive: '1b77GXYCcqE6Ems2cCoEu3n2lZosOaBCC', poster: 'img/work/ec-4.jpg', label: 'BOLDER BARBERS · PROMO', ar: 'ar-16x9' },
-        { drive: '1sEi8PpzymCyhEYEUk-71bNdDOJRK99O4', poster: 'img/work/ec-5.jpg', label: 'CAPSTONE COLLEGE · PROMO', ar: 'ar-16x9' }
+        { drive: '1rx8SK2V4S0Ng_nZynZpHZWn4P6YxqfCo', poster: 'img/work/ec-1.jpg', ar: 'ar-16x9', t: 'A BEAUTIFUL LIFE', c: 'CORPORATE PROMO', cKey: 'type.corp' },
+        { drive: '1KGnHNExp_-w_Vw90CYTwdXQCx4saThbg', poster: 'img/work/ec-2.jpg', ar: 'ar-16x9', t: 'ACADIA', c: 'EVENT FILM', cKey: 'type.event' },
+        { drive: '1kYbUNuI6Db5pXNOFBRm5ULfmOMOus8dv', poster: 'img/work/ec-3.jpg', ar: 'ar-16x9', t: 'APARTMENT LIST', c: 'EVENT FILM', cKey: 'type.event' },
+        { drive: '1b77GXYCcqE6Ems2cCoEu3n2lZosOaBCC', poster: 'img/work/ec-4.jpg', ar: 'ar-16x9', t: 'BOLDER BARBERS', c: 'CORPORATE PROMO', cKey: 'type.corp' },
+        { drive: '1sEi8PpzymCyhEYEUk-71bNdDOJRK99O4', poster: 'img/work/ec-5.jpg', ar: 'ar-16x9', t: 'CAPSTONE COLLEGE', c: 'CORPORATE PROMO', cKey: 'type.corp' }
       ]
     },
     youtube: {
       href: 'youtube.html',
       grid: 'wide',
       items: [
-        { yt: 'HWT1wKEDcQw', thumb: 'https://i.ytimg.com/vi/HWT1wKEDcQw/hqdefault.jpg', label: 'THAT IS IMPOSSIBLE · 2.4M VIEWS', ar: 'ar-16x9' },
-        { yt: 'hHj-WOnoJ1Q', thumb: 'https://i.ytimg.com/vi/hHj-WOnoJ1Q/hqdefault.jpg', label: 'THAT IS IMPOSSIBLE · 1.8M VIEWS', ar: 'ar-16x9' },
-        { yt: 'M9U9jdHNYLQ', thumb: 'https://i.ytimg.com/vi/M9U9jdHNYLQ/hqdefault.jpg', label: 'THAT IS IMPOSSIBLE · 974K VIEWS', ar: 'ar-16x9' },
-        { yt: '3OiUStvL5z0', thumb: 'https://i.ytimg.com/vi/3OiUStvL5z0/hqdefault.jpg', label: 'JAYMEZ · 925K VIEWS', ar: 'ar-16x9' },
-        { yt: 'NlygkaZGm_I', thumb: 'https://i.ytimg.com/vi/NlygkaZGm_I/hqdefault.jpg', label: 'JAYMEZ · 601K VIEWS', ar: 'ar-16x9' },
-        { yt: 'tm78dj6pAuA', thumb: 'https://i.ytimg.com/vi/tm78dj6pAuA/hqdefault.jpg', label: 'JAYMEZ · 711K VIEWS', ar: 'ar-16x9' }
+        { yt: 'HWT1wKEDcQw', thumb: 'https://i.ytimg.com/vi/HWT1wKEDcQw/hqdefault.jpg', ar: 'ar-16x9', t: 'VIDEO 4', tKey: 'proj.4', c: 'THAT IS IMPOSSIBLE', vw: '2.4M' },
+        { yt: 'hHj-WOnoJ1Q', thumb: 'https://i.ytimg.com/vi/hHj-WOnoJ1Q/hqdefault.jpg', ar: 'ar-16x9', t: 'VIDEO 3', tKey: 'proj.3', c: 'THAT IS IMPOSSIBLE', vw: '1.8M' },
+        { yt: 'M9U9jdHNYLQ', thumb: 'https://i.ytimg.com/vi/M9U9jdHNYLQ/hqdefault.jpg', ar: 'ar-16x9', t: 'VIDEO 5', tKey: 'proj.5', c: 'THAT IS IMPOSSIBLE', vw: '974K' },
+        { yt: '3OiUStvL5z0', thumb: 'https://i.ytimg.com/vi/3OiUStvL5z0/hqdefault.jpg', ar: 'ar-16x9', t: 'VIDEO 8', tKey: 'proj.8', c: 'JAYMEZ', vw: '925K' },
+        { yt: 'NlygkaZGm_I', thumb: 'https://i.ytimg.com/vi/NlygkaZGm_I/hqdefault.jpg', ar: 'ar-16x9', t: 'VIDEO 7', tKey: 'proj.7', c: 'JAYMEZ', vw: '601K' },
+        { yt: 'tm78dj6pAuA', thumb: 'https://i.ytimg.com/vi/tm78dj6pAuA/hqdefault.jpg', ar: 'ar-16x9', t: 'VIDEO 9', tKey: 'proj.9', c: 'JAYMEZ', vw: '711K' }
       ]
     },
     motion: {
       href: 'motion.html',
       items: [
-        { drive: '1kaXN52Y10Jsjp0EkMt2nUQkHwG5eF0H0', poster: 'img/work/motion-1.jpg', label: 'RESCUE CONCEPT', ar: 'ar-1x1' },
-        { drive: '186GkxB8zVWSmKh33UEe-l149hE0GqbQy', poster: 'img/work/motion-2.jpg', label: 'SETUP CONCEPT · RAZER', ar: 'ar-1x1' },
-        { drive: '10CfBOz1-N__QiNPm7u4jA364k28TWdba', poster: 'img/work/motion-3.jpg', label: 'DELIVERY CONCEPT · SNEAKERS', ar: 'ar-1x1' }
+        { drive: '1kaXN52Y10Jsjp0EkMt2nUQkHwG5eF0H0', poster: 'img/work/motion-1.jpg', ar: 'ar-1x1', t: 'RESCUE CONCEPT' },
+        { drive: '186GkxB8zVWSmKh33UEe-l149hE0GqbQy', poster: 'img/work/motion-2.jpg', ar: 'ar-1x1', t: 'SETUP CONCEPT · RAZER' },
+        { drive: '10CfBOz1-N__QiNPm7u4jA364k28TWdba', poster: 'img/work/motion-3.jpg', ar: 'ar-1x1', t: 'DELIVERY CONCEPT · SNEAKERS' }
       ]
     },
     vsl: {
       href: 'vsl.html',
       items: [
-        { drive: '1Hhm9s4Fz5AQOKpDtE1F1BHKIqw0Id8vM', poster: 'img/work/vsl-1.jpg', label: 'AUDREY & MASON MAHONEY · VSL', ar: 'ar-16x9', letterbox: true },
-        { drive: '1FiXTuj6KI2MBc_wBMjmVw03bX75rs3lQ', poster: 'img/work/vsl-2.jpg', label: 'NATALIE SUSI · VSL 1', ar: 'ar-16x9', letterbox: true },
-        { drive: '1RqSb5hyVUP6DfDBcWpLU1OEkaK2lHoS3', poster: 'img/work/vsl-3.jpg', label: 'NATALIE SUSI · VSL 2', ar: 'ar-16x9', letterbox: true }
+        { drive: '1Hhm9s4Fz5AQOKpDtE1F1BHKIqw0Id8vM', poster: 'img/work/vsl-1.jpg', ar: 'ar-16x9', letterbox: true, t: 'AUDREY & MASON MAHONEY', c: 'VSL' },
+        { drive: '1FiXTuj6KI2MBc_wBMjmVw03bX75rs3lQ', poster: 'img/work/vsl-2.jpg', ar: 'ar-16x9', letterbox: true, t: 'NATALIE SUSI', c: 'VSL 1' },
+        { drive: '1RqSb5hyVUP6DfDBcWpLU1OEkaK2lHoS3', poster: 'img/work/vsl-3.jpg', ar: 'ar-16x9', letterbox: true, t: 'NATALIE SUSI', c: 'VSL 2' }
       ]
     },
     podcast: {
       href: 'podcast.html',
       items: [
-        { drive: '1ivA97pwc80Q0fmR-J8K10FBvk-cZepLS', poster: 'img/work/podcast-1.jpg', label: 'PODCAST · VIDEO 1', ar: 'ar-16x9' }
+        { drive: '1ivA97pwc80Q0fmR-J8K10FBvk-cZepLS', poster: 'img/work/podcast-1.jpg', ar: 'ar-16x9', t: 'PODCAST', tKey: 'cat.podcast', c: 'VIDEO 1', cKey: 'proj.1' }
       ]
     }
   };
@@ -437,32 +455,28 @@
           mediaInner = '<img class="yt-poster" src="' + it.thumb + '" alt="" loading="lazy">'
             + '<span class="yt-playbtn" aria-hidden="true"><svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"></path></svg></span>';
         }
-        // Título FUERA del video, en barra inferior (estilo ficha) — YouTube: título + views
-        let title = it.label || '';
-        let viewsNum = '';
-        if (isYt) {
-          const parts = title.split(' · ');
-          if (parts.length > 1) {
-            title = parts[0];
-            viewsNum = (parts.slice(1).join(' · ').split(' ')[0]) || '';
-          }
-        }
+        // Título EXACTAMENTE igual que en las páginas de categoría:
+        // card-category (+ card-client y card-views en YouTube) — mismas clases, misma i18n.
+        const t = it.t || '';
+        const c = it.c || '';
+        const vw = it.vw || '';
         html += '<a class="work-card featured-card" href="' + cfg.href + '" style="animation-delay:' + (i * 0.07) + 's">'
           + '<div class="' + mediaCls + ' ' + it.ar + '"' + mediaAttr + '>'
           + mediaInner
           + '<span class="card-enter" aria-hidden="true">&#8599;</span>'
           + '</div>'
-          + '<div class="featured-card-info">'
-          + '<span class="featured-card-title">' + title + '</span>'
-          + (viewsNum ? '<span class="card-views">' + viewsNum + ' <span data-i18n="views.label">VIEWS</span></span>' : '')
-          + '</div>'
+          + '<div class="featured-card-info"><div class="card-info-main">'
+          + (t ? '<span class="card-category"' + (it.tKey ? ' data-i18n="' + it.tKey + '"' : '') + '>' + t + '</span>' : '')
+          + (c ? '<span class="card-client"' + (it.cKey ? ' data-i18n="' + it.cKey + '"' : '') + '>' + c + '</span>' : '')
+          + (vw ? '<span class="card-views">' + vw + ' <span data-i18n="views.label">VIEWS</span></span>' : '')
+          + '</div></div>'
           + '</a>';
       });
       html += '</div>';
     } else {
       html += '<div class="featured-empty" data-i18n="filter.empty">CONTENT BEING UPDATED — CHECK BACK SOON</div>';
     }
-    html += '<a class="btn btn-ghost featured-more" href="' + cfg.href + '" data-i18n="filter.more">SEE MORE &rarr;</a>';
+    html += '<a class="btn btn-ghost glow-ring featured-more" href="' + cfg.href + '" data-i18n="filter.more">SEE MORE &rarr;</a>';
 
     filterPanel.innerHTML = html;
     filterPanel.hidden = false;
@@ -836,6 +850,43 @@
       }
     });
   });
+
+  // ==========================================
+  // TILE LOOPS — highlights en loop por categoría (vista ALL, estilo Heli Sulbarán).
+  // Nunca autoplay al cargar: el loop arranca SOLO cuando la tarjeta entra
+  // cerca del viewport (rootMargin 200px) y se pausa al salir. Mudo siempre
+  // (sonido = solo videos de contenido vía click). No usan data-lazy para
+  // no entrar en bindCardClickPlay.
+  // ==========================================
+  function bindTileLoops() {
+    const loops = document.querySelectorAll('video[data-loop]');
+    if (!loops.length || !('IntersectionObserver' in window)) return;
+
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((en) => {
+        const v = en.target;
+        const card = v.closest('.work-card');
+        if (en.isIntersecting) {
+          if (!v.dataset.loopLoaded) {
+            v.dataset.loopLoaded = '1';
+            try { v.load(); } catch (err) { /* noop */ }
+          }
+          v.play().then(() => {
+            v.classList.add('is-ready');
+            if (!v.paused && card) card.classList.add('is-playing');
+          }).catch(() => {
+            // Autoplay bloqueado u mp4 ausente: queda la imagen estática
+          });
+        } else if (!v.paused) {
+          v.pause();
+          if (card) card.classList.remove('is-playing');
+        }
+      });
+    }, { rootMargin: '200px' });
+
+    loops.forEach((v) => io.observe(v));
+  }
+  bindTileLoops();
 
   // ==========================================
   // TRUSTED-BY MARQUEE — seamless loop
