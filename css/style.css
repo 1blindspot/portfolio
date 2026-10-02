@@ -571,7 +571,8 @@ body.cursor-click .cursor-arrow svg {
   animation: marqueeScroll 38s linear infinite;
 }
 
-.marquee-wrap:hover .marquee-track {
+.marquee-wrap:hover .marquee-track,
+.marquee-track.is-paused {
   animation-play-state: paused;
 }
 
@@ -783,25 +784,21 @@ body.cursor-click .cursor-arrow svg {
 }
 
 /* --- Work Grid (vista ALL) ---
-   Filas de ALTURA IGUAL (elección del usuario): el ancho de cada tarjeta es su
-   formato real (reels angosto, 16:9 ancho) — filas centradas y sin recortes.
-   --tile-h: tope 256px; la otra restricción es que la fila superior (AI, ADS,
-   EVENT, MOTION = 4.14 × alto + 50px de gaps/bordes) quepa en el contenedor. */
+   Tiles CUADROS y uniformes (2026-10-02, elección del usuario): 4 por fila en
+   escritorio, 2 en móvil. El póster/loop cubre el cuadro (object-fit: cover) y
+   se recorta lo necesario; al abrir la categoría cada video muestra SU ratio. */
 .work-grid {
-  --tile-h: min(256px, calc((100vw - 140px) / 4.1403));
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: flex-start;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 14px;
   max-width: 1120px;
   margin: 0 auto;
 }
 
 .work-grid .work-card {
-  flex: 0 0 auto;
+  aspect-ratio: 1 / 1;
+  height: auto;
   width: auto;
-  height: var(--tile-h);
   margin-bottom: 0;
 }
 
@@ -848,16 +845,14 @@ body.cursor-click .cursor-arrow svg {
 .card-media.ar-4x5 { aspect-ratio: 4 / 5; }
 .card-media.ar-16x9 { aspect-ratio: 16 / 9; }
 
-/* Tiles del ALL: alto fijo compartido; el ancho corresponde al formato real del video */
+/* Tiles del ALL: el media llena el cuadro (póster y loop recortados con cover) */
 .work-grid .work-card .card-media {
-  width: auto;
+  position: absolute;
+  inset: 0;
+  width: 100%;
   height: 100%;
   aspect-ratio: auto;
 }
-.work-grid .work-card .card-media.ar-9x16 { width: calc(var(--tile-h) * 9 / 16); }
-.work-grid .work-card .card-media.ar-4x5 { width: calc(var(--tile-h) * 4 / 5); }
-.work-grid .work-card .card-media.ar-16x9 { width: calc(var(--tile-h) * 16 / 9); }
-.work-grid .work-card .card-media.ar-1x1 { width: var(--tile-h); }
 
 /* --- Featured panel (filter view: highlights + see more) --- */
 .filter-panel[hidden] { display: none; }
@@ -879,9 +874,10 @@ body.cursor-click .cursor-arrow svg {
   grid-template-columns: repeat(5, minmax(0, 1fr));
 }
 
+/* Columnas FIJAS (sin auto-fit): las tarjetas nunca estiran cuando una fila
+   queda incompleta — sizes idénticos entre destacados y lista completa. */
 .featured-grid--cols3 {
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  max-width: 980px;
 }
 
 .featured-grid--cols2 {
@@ -917,7 +913,7 @@ body.cursor-click .cursor-arrow svg {
    (tras SEE MORE, o directamente al hacer click en un tile del ALL) --- */
 .full-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  grid-template-columns: repeat(5, minmax(0, 1fr));
   gap: 18px;
   max-width: 1120px;
   margin: 0 auto 44px;
@@ -930,6 +926,10 @@ body.cursor-click .cursor-arrow svg {
 
 .full-grid--cols5 {
   grid-template-columns: repeat(5, minmax(0, 1fr));
+}
+
+.full-grid--cols3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
 .full-grid--center {
@@ -985,7 +985,8 @@ body.cursor-click .cursor-arrow svg {
   .featured-grid--cols2,
   .full-grid,
   .full-grid--wide,
-  .full-grid--cols5 {
+  .full-grid--cols5,
+  .full-grid--cols3 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 12px;
     margin-bottom: 32px;
@@ -2522,9 +2523,9 @@ body.modal-open {
     margin-bottom: 40px;
   }
 
-  /* Móvil: alto que permite que un 16:9 ocupe el ancho útil sin desbordar */
+  /* Móvil: 2 tiles por fila (uniformes) */
   .work-grid {
-    --tile-h: min(200px, calc((100vw - 110px) * 9 / 16));
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .filter-bar {

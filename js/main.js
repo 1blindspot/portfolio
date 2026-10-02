@@ -356,6 +356,7 @@
   const featuredWork = {
     reels: {
       href: 'reels.html',
+      grid: 'cols5',
       items: [
         { drive: '1up1usn3P9nrIxW7n_1J4TQJbmKsSE5Ub', poster: 'img/work/reels-1.jpg', ar: 'ar-9x16', t: 'VIDEO 1', tKey: 'proj.1', c: 'V2 VISUALS' },
         { drive: '1ffmq7tNKYc8elZs-m18pW4MRzQ6Nlnzq', poster: 'img/work/reels-2.jpg', ar: 'ar-9x16', t: 'VIDEO 2', tKey: 'proj.2', c: 'V2 VISUALS' },
@@ -377,6 +378,7 @@
     },
     ai: {
       href: 'ai.html',
+      grid: 'cols5',
       items: [
         { drive: '1vpjDgtRy8tSdftDAn-V89nsXiaNsmGD2', poster: 'img/work/ai-5.jpg', ar: 'ar-9x16', t: 'VIDEO 1', tKey: 'proj.1', c: 'ADDROP' },
         { drive: '1_WPbWZ4DSNh91X1mJyK9zjcDmh46i8Te', poster: 'img/work/ai-2.jpg', ar: 'ar-9x16', t: 'VIDEO 2', tKey: 'proj.2', c: 'ADDROP' },
@@ -393,23 +395,25 @@
         { drive: '1KGnHNExp_-w_Vw90CYTwdXQCx4saThbg', poster: 'img/work/ec-2.jpg', ar: 'ar-16x9', t: 'ACADIA', c: 'EVENT FILM', cKey: 'type.event' },
         { drive: '1kYbUNuI6Db5pXNOFBRm5ULfmOMOus8dv', poster: 'img/work/ec-3.jpg', ar: 'ar-16x9', t: 'APARTMENT LIST', c: 'EVENT FILM', cKey: 'type.event' },
         { drive: '1b77GXYCcqE6Ems2cCoEu3n2lZosOaBCC', poster: 'img/work/ec-4.jpg', ar: 'ar-16x9', t: 'BOLDER BARBERS', c: 'CORPORATE PROMO', cKey: 'type.corp' },
-        { drive: '1sEi8PpzymCyhEYEUk-71bNdDOJRK99O4', poster: 'img/work/ec-5.jpg', ar: 'ar-16x9', t: 'CAPSTONE COLLEGE', c: 'CORPORATE PROMO', cKey: 'type.corp' }
+        { drive: '1sEi8PpzymCyhEYEUk-71bNdDOJRK99O4', poster: 'img/work/ec-5.jpg', ar: 'ar-16x9', t: 'CAPSTONE COLLEGE', c: 'CORPORATE PROMO', cKey: 'type.corp' },
+        { drive: '1Tei1RB7377kRUZpaxkzQWpJ2_AOLOwdV', poster: 'img/work/ec-6.jpg', ar: 'ar-16x9', t: 'CORONADO', c: 'EVENT FILM', cKey: 'type.event' }
       ]
     },
     youtube: {
       href: 'youtube.html',
       grid: 'wide',
       items: [
-        { yt: 'HWT1wKEDcQw', thumb: 'https://i.ytimg.com/vi/HWT1wKEDcQw/hqdefault.jpg', ar: 'ar-16x9', t: 'VIDEO 4', tKey: 'proj.4', c: 'THAT IS IMPOSSIBLE', vw: '2.4M' },
-        { yt: 'hHj-WOnoJ1Q', thumb: 'https://i.ytimg.com/vi/hHj-WOnoJ1Q/hqdefault.jpg', ar: 'ar-16x9', t: 'VIDEO 3', tKey: 'proj.3', c: 'THAT IS IMPOSSIBLE', vw: '1.8M' },
-        { yt: 'M9U9jdHNYLQ', thumb: 'https://i.ytimg.com/vi/M9U9jdHNYLQ/hqdefault.jpg', ar: 'ar-16x9', t: 'VIDEO 5', tKey: 'proj.5', c: 'THAT IS IMPOSSIBLE', vw: '974K' },
-        { yt: '3OiUStvL5z0', thumb: 'https://i.ytimg.com/vi/3OiUStvL5z0/hqdefault.jpg', ar: 'ar-16x9', t: 'VIDEO 8', tKey: 'proj.8', c: 'JAYMEZ', vw: '925K' },
-        { yt: 'NlygkaZGm_I', thumb: 'https://i.ytimg.com/vi/NlygkaZGm_I/hqdefault.jpg', ar: 'ar-16x9', t: 'VIDEO 7', tKey: 'proj.7', c: 'JAYMEZ', vw: '601K' },
-        { yt: 'tm78dj6pAuA', thumb: 'https://i.ytimg.com/vi/tm78dj6pAuA/hqdefault.jpg', ar: 'ar-16x9', t: 'VIDEO 9', tKey: 'proj.9', c: 'JAYMEZ', vw: '711K' }
+        { yt: 'HWT1wKEDcQw', thumb: 'https://i.ytimg.com/vi/HWT1wKEDcQw/hqdefault.jpg', ar: 'ar-16x9', t: 'VIDEO 1', tKey: 'proj.1', c: 'THAT IS IMPOSSIBLE', vw: '2.4M' },
+        { yt: 'hHj-WOnoJ1Q', thumb: 'https://i.ytimg.com/vi/hHj-WOnoJ1Q/hqdefault.jpg', ar: 'ar-16x9', t: 'VIDEO 2', tKey: 'proj.2', c: 'THAT IS IMPOSSIBLE', vw: '1.8M' },
+        { yt: 'M9U9jdHNYLQ', thumb: 'https://i.ytimg.com/vi/M9U9jdHNYLQ/hqdefault.jpg', ar: 'ar-16x9', t: 'VIDEO 3', tKey: 'proj.3', c: 'THAT IS IMPOSSIBLE', vw: '974K' },
+        { yt: '3OiUStvL5z0', thumb: 'https://i.ytimg.com/vi/3OiUStvL5z0/hqdefault.jpg', ar: 'ar-16x9', t: 'VIDEO 4', tKey: 'proj.4', c: 'JAYMEZ', vw: '925K' },
+        { yt: 'tm78dj6pAuA', thumb: 'https://i.ytimg.com/vi/tm78dj6pAuA/hqdefault.jpg', ar: 'ar-16x9', t: 'VIDEO 5', tKey: 'proj.5', c: 'JAYMEZ', vw: '711K' },
+        { yt: 'NlygkaZGm_I', thumb: 'https://i.ytimg.com/vi/NlygkaZGm_I/hqdefault.jpg', ar: 'ar-16x9', t: 'VIDEO 6', tKey: 'proj.6', c: 'JAYMEZ', vw: '601K' }
       ]
     },
     motion: {
       href: 'motion.html',
+      grid: 'cols3',
       items: [
         { drive: '1kaXN52Y10Jsjp0EkMt2nUQkHwG5eF0H0', poster: 'img/work/motion-1.jpg', ar: 'ar-1x1', t: 'RESCUE CONCEPT' },
         { drive: '186GkxB8zVWSmKh33UEe-l149hE0GqbQy', poster: 'img/work/motion-2.jpg', ar: 'ar-1x1', t: 'SETUP CONCEPT · RAZER' },
@@ -418,6 +422,7 @@
     },
     vsl: {
       href: 'vsl.html',
+      grid: 'cols3',
       items: [
         { drive: '1Hhm9s4Fz5AQOKpDtE1F1BHKIqw0Id8vM', poster: 'img/work/vsl-1.jpg', ar: 'ar-16x9', letterbox: true, t: 'AUDREY & MASON MAHONEY', c: 'VSL' },
         { drive: '1FiXTuj6KI2MBc_wBMjmVw03bX75rs3lQ', poster: 'img/work/vsl-2.jpg', ar: 'ar-16x9', letterbox: true, t: 'NATALIE SUSI', c: 'VSL 1' },
@@ -431,6 +436,25 @@
       ]
     }
   };
+
+  // Los títulos "VIDEO n" se numeran por SU POSICIÓN en pantalla (VIDEO 1, VIDEO 2, ...)
+  // tras cada render, así el orden por views no deja números sueltos. Se actualiza también
+  // data-i18n="proj.n" para que cambiar de idioma conserve el número nuevo.
+  function renumberVideoTitles(scope) {
+    if (!scope) return;
+    const dict = translations[currentLang] || translations.en;
+    let n = 0;
+    scope.querySelectorAll('.card-category, .card-client, .featured-card-title').forEach((el) => {
+      // EN: "VIDEO n" — ES: "PROYECTO n" (ambos se renumeran igual)
+      const m = (el.textContent || '').trim().match(/^(?:VIDEO|PROYECTO)\s+(\d+)$/i);
+      if (!m) return;
+      n += 1;
+      const key = 'proj.' + n;
+      el.textContent = dict[key] || ('VIDEO ' + n);
+      const cur = el.getAttribute('data-i18n');
+      if (cur && /^proj\.\d+$/.test(cur)) el.setAttribute('data-i18n', key);
+    });
+  }
 
   function renderFeaturedPanel(category) {
     if (!filterPanel) return;
@@ -488,6 +512,7 @@
     currentCategory = category;
     expandedCategory = null;
     if (currentLang) setLanguage(currentLang);
+    renumberVideoTitles(filterPanel);
 
     // Si la categoría no tiene videos fuera de los destacados, oculta SEE MORE
     fetchCategoryCards(category).then((cards) => {
@@ -547,6 +572,7 @@
         });
       }
       if (currentLang) setLanguage(currentLang);
+      renumberVideoTitles(filterPanel);
     });
   }
 
@@ -582,6 +608,7 @@
       }
       if (more) more.remove();
       if (currentLang) setLanguage(currentLang);
+      renumberVideoTitles(filterPanel);
     }).catch(() => { expandedCategory = null; });
   }
 
@@ -992,6 +1019,9 @@
   }
   bindCardClickPlay();
 
+  // Páginas de categoría: los títulos "VIDEO n" también van por posición en pantalla
+  document.querySelectorAll('.video-grid').forEach(renumberVideoTitles);
+
   // Un click fuera de cualquier tarjeta detiene toda reproducción
   document.addEventListener('click', (e) => {
     if (e.target.closest('.work-card')) return;
@@ -1179,6 +1209,9 @@
     clientModal.classList.add('open');
     clientModal.setAttribute('aria-hidden', 'false');
     document.body.style.overflow = 'hidden';
+    // Frente la cinta mientras un cliente está seleccionado (modal abierto)
+    const mqTrack = document.querySelector('.marquee-track');
+    if (mqTrack) mqTrack.classList.add('is-paused');
   }
 
   function closeClientModal() {
@@ -1187,12 +1220,17 @@
     clientModal.classList.remove('open');
     clientModal.setAttribute('aria-hidden', 'true');
     document.body.style.overflow = '';
+    const mqTrack = document.querySelector('.marquee-track');
+    if (mqTrack) mqTrack.classList.remove('is-paused');
   }
 
-  document.querySelectorAll('.client-item[data-client]').forEach((btn) => {
-    btn.addEventListener('click', () => {
-      openClientModal(btn.getAttribute('data-client'), btn.textContent.trim());
-    });
+  // Delegated binding (NOT per-item): fitMarquee() rebuilds the duplicate
+  // groups with cloneNode(true), which drops event listeners — clicking a
+  // cloned logo would do nothing. Binding once at document level keeps the
+  // original AND every clone clickable, no matter how many rebuilds happen.
+  document.addEventListener('click', (e) => {
+    const item = e.target && e.target.closest ? e.target.closest('.client-item[data-client]') : null;
+    if (item) openClientModal(item.getAttribute('data-client'), item.textContent.trim());
   });
 
   if (clientModal) {
