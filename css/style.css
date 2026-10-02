@@ -1158,31 +1158,29 @@ body.cursor-click .cursor-arrow svg {
   pointer-events: none;
 }
 
-/* Centered card name (home work cards) — chip claro translúcido con texto negro
-   (elección del usuario 2026-10-02): legible sobre cualquier póster, sin velo total. */
+/* Título en BARRA INFERIOR (referencia del usuario 2026-10-02): barra blanca sólida
+   al pie del tile, texto negro en negrita alineado a la izquierda — como el capture
+   (VIDEO + badge). El tile sigue siendo cuadrado; el loop cubre hasta la barra. */
 .card-label {
   position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
+  left: 0;
+  right: 0;
+  bottom: 0;
   z-index: 2;
-  display: inline-block;
-  max-width: calc(100% - 24px);
-  padding: 7px 16px;
-  border-radius: var(--radius-pill);
-  background: rgba(255, 255, 255, 0.78);
-  -webkit-backdrop-filter: blur(10px);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.55);
-  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.28);
-  text-align: center;
+  display: flex;
+  align-items: center;
+  height: 42px;
+  padding: 0 14px;
+  overflow: hidden;
+  background: #ffffff;
+  text-align: left;
   font-family: var(--font-display);
-  font-size: clamp(18px, 1.7vw, 24px);
+  font-size: clamp(12px, 1.1vw, 15px);
   font-weight: 800;
-  letter-spacing: 0.1em;
-  line-height: 1.25;
+  letter-spacing: 0.05em;
+  line-height: 1.15;
   text-transform: uppercase;
-  color: rgba(0, 0, 0, 0.78);
+  color: #0a0a0a;
   text-shadow: none;
   pointer-events: none;
   transition: opacity 0.35s var(--ease);
@@ -2526,6 +2524,14 @@ body.modal-open {
   /* Móvil: 2 tiles por fila (uniformes) */
   .work-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  /* Barra inferior del tile en móvil: más compacta */
+  .card-label {
+    height: 36px;
+    padding: 0 10px;
+    font-size: clamp(11px, 3vw, 13px);
+    letter-spacing: 0.04em;
   }
 
   .filter-bar {
