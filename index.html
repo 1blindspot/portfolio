@@ -75,7 +75,7 @@
     <div class="hero-grid" aria-hidden="true"></div>
     <div class="hero-grain" aria-hidden="true"></div>
     <div class="hero-content">
-      <p class="hero-status hero-enter" style="--delay: 0"><span class="status-dot" aria-hidden="true"></span><span data-i18n="hero.status">AVAILABLE FOR NEW PROJECTS — REPLIES WITHIN 24H</span></p>
+      <p class="hero-status hero-enter" style="--delay: 0"><span class="status-dot" aria-hidden="true"></span><span data-i18n="hero.status">AVAILABLE FOR NEW PROJECTS</span></p>
       <p class="hero-label hero-enter" style="--delay: 1">
         <span data-i18n="hero.role1">VIDEO EDITOR</span>
         <span class="hero-label-sep">/</span>
@@ -130,30 +130,32 @@
       <h2 class="section-title" data-i18n="work.title">MY<br>WORK</h2>
       <span class="section-label"><span class="section-num">(01)</span> // <span data-i18n="work.label">WORK</span></span>
 
-      <!-- Filter bar — clickable categories -->
+      <!-- Filter bar — clickable categories (orden elegido por el usuario) -->
       <div class="filter-bar" id="filterBar">
         <button class="filter-btn active" data-filter="all" data-i18n="filter.all">ALL</button>
-        <button class="filter-btn" data-filter="reels" data-i18n="filter.reels">REELS</button>
-        <button class="filter-btn" data-filter="ads" data-i18n="filter.ads">ADS</button>
         <button class="filter-btn" data-filter="ai" data-i18n="filter.ai">AI ADS</button>
+        <button class="filter-btn" data-filter="ads" data-i18n="filter.ads">ADS</button>
         <button class="filter-btn" data-filter="eventcorp" data-i18n="filter.eventcorp">EVENT &amp; CORPORATE</button>
         <button class="filter-btn" data-filter="motion" data-i18n="filter.motion">MOTION DESIGN</button>
         <button class="filter-btn" data-filter="youtube" data-i18n="filter.youtube">YOUTUBE</button>
-        <button class="filter-btn" data-filter="vsl" data-i18n="filter.vsl">VSL</button>
         <button class="filter-btn" data-filter="podcast" data-i18n="filter.podcast">PODCAST</button>
+        <button class="filter-btn" data-filter="vsl" data-i18n="filter.vsl">VSL</button>
+        <button class="filter-btn" data-filter="reels" data-i18n="filter.reels">REELS</button>
       </div>
     </div>
 
     <div class="work-grid" id="workGrid">
-      <!-- REELS — 9:16 (8 de 9 videos) -->
-      <a href="reels.html" class="work-card fade-up" data-category="reels">
+      <!-- Orden de tiles igual al de los filtros (elegido por el usuario): AI ADS, ADS, EVENT, MOTION, YOUTUBE, PODCAST, VSL, REELS -->
+
+      <!-- AI ADS — 9:16 (16 de 16 videos) -->
+      <a href="ai.html" class="work-card fade-up" data-category="ai">
         <div class="card-media ar-9x16">
-          <img src="video/cover-reels.jpg" alt="" loading="lazy">
+          <img src="video/cover-ai.jpg" alt="" loading="lazy">
           <video class="tile-loop" data-loop muted loop playsinline preload="none"
-                 poster="video/cover-reels.jpg" aria-hidden="true">
-            <source src="video/hl-reels.mp4" type="video/mp4">
+                 poster="video/cover-ai.jpg" aria-hidden="true">
+            <source src="video/hl-ai.mp4" type="video/mp4">
           </video>
-          <span class="card-label" data-i18n="cat.reels">REELS</span>
+          <span class="card-label" data-i18n="cat.ai">AI ADS</span>
           <span class="card-enter" aria-hidden="true">&#8599;</span>
         </div>
       </a>
@@ -167,19 +169,6 @@
             <source src="video/hl-ads.mp4" type="video/mp4">
           </video>
           <span class="card-label" data-i18n="cat.ads">ADS</span>
-          <span class="card-enter" aria-hidden="true">&#8599;</span>
-        </div>
-      </a>
-
-      <!-- AI ADS — 9:16 (16 de 16 videos) -->
-      <a href="ai.html" class="work-card fade-up" data-category="ai">
-        <div class="card-media ar-9x16">
-          <img src="video/cover-ai.jpg" alt="" loading="lazy">
-          <video class="tile-loop" data-loop muted loop playsinline preload="none"
-                 poster="video/cover-ai.jpg" aria-hidden="true">
-            <source src="video/hl-ai.mp4" type="video/mp4">
-          </video>
-          <span class="card-label" data-i18n="cat.ai">AI ADS</span>
           <span class="card-enter" aria-hidden="true">&#8599;</span>
         </div>
       </a>
@@ -223,6 +212,19 @@
         </div>
       </a>
 
+      <!-- PODCAST / EXPLAINER — 16:9 -->
+      <a href="podcast.html" class="work-card fade-up" data-category="podcast">
+        <div class="card-media ar-16x9">
+          <img src="video/cover-podcast.jpg" alt="" loading="lazy">
+          <video class="tile-loop" data-loop muted loop playsinline preload="none"
+                 poster="video/cover-podcast.jpg" aria-hidden="true">
+            <source src="video/hl-podcast.mp4" type="video/mp4">
+          </video>
+          <span class="card-label" data-i18n="cat.podcast">PODCAST</span>
+          <span class="card-enter" aria-hidden="true">&#8599;</span>
+        </div>
+      </a>
+
       <!-- VSL — 16:9 -->
       <a href="vsl.html" class="work-card fade-up" data-category="vsl">
         <div class="card-media ar-16x9">
@@ -236,15 +238,15 @@
         </div>
       </a>
 
-      <!-- PODCAST / EXPLAINER — 16:9 -->
-      <a href="podcast.html" class="work-card fade-up" data-category="podcast">
-        <div class="card-media ar-16x9">
-          <img src="video/cover-podcast.jpg" alt="" loading="lazy">
+      <!-- REELS — 9:16 (8 de 9 videos) -->
+      <a href="reels.html" class="work-card fade-up" data-category="reels">
+        <div class="card-media ar-9x16">
+          <img src="video/cover-reels.jpg" alt="" loading="lazy">
           <video class="tile-loop" data-loop muted loop playsinline preload="none"
-                 poster="video/cover-podcast.jpg" aria-hidden="true">
-            <source src="video/hl-podcast.mp4" type="video/mp4">
+                 poster="video/cover-reels.jpg" aria-hidden="true">
+            <source src="video/hl-reels.mp4" type="video/mp4">
           </video>
-          <span class="card-label" data-i18n="cat.podcast">PODCAST</span>
+          <span class="card-label" data-i18n="cat.reels">REELS</span>
           <span class="card-enter" aria-hidden="true">&#8599;</span>
         </div>
       </a>

@@ -782,12 +782,27 @@ body.cursor-click .cursor-arrow svg {
   color: #fff;
 }
 
-/* --- Work Grid --- */
+/* --- Work Grid (vista ALL) ---
+   Filas de ALTURA IGUAL (elección del usuario): el ancho de cada tarjeta es su
+   formato real (reels angosto, 16:9 ancho) — filas centradas y sin recortes.
+   --tile-h: tope 256px; la otra restricción es que la fila superior (AI, ADS,
+   EVENT, MOTION = 4.14 × alto + 50px de gaps/bordes) quepa en el contenedor. */
 .work-grid {
-  columns: 4;
-  column-gap: 14px;
+  --tile-h: min(256px, calc((100vw - 140px) / 4.1403));
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 14px;
   max-width: 1120px;
   margin: 0 auto;
+}
+
+.work-grid .work-card {
+  flex: 0 0 auto;
+  width: auto;
+  height: var(--tile-h);
+  margin-bottom: 0;
 }
 
 .work-card {
@@ -832,6 +847,17 @@ body.cursor-click .cursor-arrow svg {
 .card-media.ar-9x16 { aspect-ratio: 9 / 16; }
 .card-media.ar-4x5 { aspect-ratio: 4 / 5; }
 .card-media.ar-16x9 { aspect-ratio: 16 / 9; }
+
+/* Tiles del ALL: alto fijo compartido; el ancho corresponde al formato real del video */
+.work-grid .work-card .card-media {
+  width: auto;
+  height: 100%;
+  aspect-ratio: auto;
+}
+.work-grid .work-card .card-media.ar-9x16 { width: calc(var(--tile-h) * 9 / 16); }
+.work-grid .work-card .card-media.ar-4x5 { width: calc(var(--tile-h) * 4 / 5); }
+.work-grid .work-card .card-media.ar-16x9 { width: calc(var(--tile-h) * 16 / 9); }
+.work-grid .work-card .card-media.ar-1x1 { width: var(--tile-h); }
 
 /* --- Featured panel (filter view: highlights + see more) --- */
 .filter-panel[hidden] { display: none; }
@@ -887,6 +913,29 @@ body.cursor-click .cursor-arrow svg {
   to { opacity: 1; transform: translateY(0); }
 }
 
+/* --- Full grid: lista completa de una categoría
+   (tras SEE MORE, o directamente al hacer click en un tile del ALL) --- */
+.full-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 18px;
+  max-width: 1120px;
+  margin: 0 auto 44px;
+  align-items: start;
+}
+
+.full-grid--wide {
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.full-grid--cols5 {
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+}
+
+.full-grid--center {
+  max-width: 300px;
+}
+
 .featured-play {
   position: absolute;
   inset: 0;
@@ -933,12 +982,16 @@ body.cursor-click .cursor-arrow svg {
   .featured-grid--cols5,
   .featured-grid--cols4,
   .featured-grid--cols3,
-  .featured-grid--cols2 {
+  .featured-grid--cols2,
+  .full-grid,
+  .full-grid--wide,
+  .full-grid--cols5 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 12px;
     margin-bottom: 32px;
   }
-  .featured-grid--center { max-width: 240px; }
+  .featured-grid--center,
+  .full-grid--center { max-width: 240px; }
 }
 
 /* --- Contact Section --- */
@@ -1104,35 +1157,34 @@ body.cursor-click .cursor-arrow svg {
   pointer-events: none;
 }
 
-/* Centered card name (home work cards) */
+/* Centered card name (home work cards) — chip claro translúcido con texto negro
+   (elección del usuario 2026-10-02): legible sobre cualquier póster, sin velo total. */
 .card-label {
   position: absolute;
-  inset: 0;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
   z-index: 2;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: inline-block;
+  max-width: calc(100% - 24px);
+  padding: 7px 16px;
+  border-radius: var(--radius-pill);
+  background: rgba(255, 255, 255, 0.78);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.28);
   text-align: center;
-  padding: 0 16px;
   font-family: var(--font-display);
-  font-size: clamp(16px, 1.5vw, 22px);
+  font-size: clamp(18px, 1.7vw, 24px);
   font-weight: 800;
   letter-spacing: 0.1em;
-  line-height: 1.3;
+  line-height: 1.25;
   text-transform: uppercase;
-  color: #fff;
-  text-shadow: 0 2px 18px rgba(0, 0, 0, 0.9), 0 1px 4px rgba(0, 0, 0, 0.95);
+  color: rgba(0, 0, 0, 0.78);
+  text-shadow: none;
   pointer-events: none;
   transition: opacity 0.35s var(--ease);
-}
-
-/* Shaded overlay covering the whole card so the title reads clearly */
-.card-label::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.62);
-  z-index: -1;
 }
 
 /* Featured panel (filter view): título discreto y abajo, sin oscurecer el póster.
@@ -1168,9 +1220,7 @@ body.cursor-click .cursor-arrow svg {
   color: #fff;
 }
 
-.work-card.is-playing .card-label {
-  opacity: 0.3;
-}
+/* El loop ya no desvanece la etiqueta (el chip debe verse siempre visible). */
 
 .card-info {
   display: flex;
@@ -1516,7 +1566,7 @@ body.cursor-click .cursor-arrow svg {
   padding: 16px 36px;
   border-radius: var(--radius-pill);
   transition: transform var(--transition), box-shadow var(--transition);
-  margin-bottom: 12px;
+  margin-bottom: 32px;
 }
 
 .about-cta:hover {
@@ -2358,7 +2408,6 @@ body.modal-open {
 /* --- Responsive --- */
 @media (max-width: 1024px) {
   .work-grid {
-    columns: 2;
     max-width: none;
   }
 
@@ -2473,8 +2522,9 @@ body.modal-open {
     margin-bottom: 40px;
   }
 
+  /* Móvil: alto que permite que un 16:9 ocupe el ancho útil sin desbordar */
   .work-grid {
-    gap: 14px;
+    --tile-h: min(200px, calc((100vw - 110px) * 9 / 16));
   }
 
   .filter-bar {
@@ -2538,10 +2588,6 @@ body.modal-open {
 
   .hero-label-sep {
     display: none;
-  }
-
-  .work-grid {
-    columns: 1;
   }
 
   .work-card--featured {

@@ -19,7 +19,7 @@
       'hero.role2': 'MOTION DESIGNER',
       'hero.role3': 'AI FILMMAKER',
       'hero.tagline': 'Dando vida a historias a través de la edición, el motion design y la IA — cuadro a cuadro.',
-      'hero.status': 'DISPONIBLE PARA NUEVOS PROYECTOS — RESPUESTA EN 24H',
+      'hero.status': 'DISPONIBLE PARA NUEVOS PROYECTOS',
       'hero.showreel': '▶ VER MI TRABAJO',
       'hero.hire': 'CONTÁCTAME →',
       'trusted.label': 'CREADORES Y MARCAS QUE CONFÍAN EN MÍ',
@@ -125,7 +125,7 @@
       'hero.role2': 'MOTION DESIGNER',
       'hero.role3': 'AI FILMMAKER',
       'hero.tagline': 'Crafting visual stories through editing, motion design<br>& AI — frame by frame.',
-      'hero.status': 'AVAILABLE FOR NEW PROJECTS — REPLIES WITHIN 24H',
+      'hero.status': 'AVAILABLE FOR NEW PROJECTS',
       'hero.showreel': '▶ WATCH MY WORK',
       'hero.hire': 'HIRE ME →',
       'trusted.label': 'TRUSTED BY CREATORS & BRANDS',
@@ -348,6 +348,11 @@
   const workGrid = document.getElementById('workGrid');
   const filterPanel = document.getElementById('filterPanel');
 
+  // Estado del filtro en la vista ALL (null = vista ALL con tiles)
+  let currentCategory = null;
+  let expandedCategory = null;   // categoría cuya lista completa ya está desplegada
+  const catCardsCache = {};      // categoría -> tarjetas .video-card de SU página (fuente única de verdad)
+
   const featuredWork = {
     reels: {
       href: 'reels.html',
@@ -480,45 +485,190 @@
 
     filterPanel.innerHTML = html;
     filterPanel.hidden = false;
+    currentCategory = category;
+    expandedCategory = null;
     if (currentLang) setLanguage(currentLang);
+
+    // Si la categoría no tiene videos fuera de los destacados, oculta SEE MORE
+    fetchCategoryCards(category).then((cards) => {
+      if (!cards.length || currentCategory !== category || expandedCategory) return;
+      const more = filterPanel.querySelector('.featured-more');
+      if (!more) return;
+      const ids = new Set(cfg.items.map((it) => it.drive || it.yt).filter(Boolean));
+      const hasRest = cards.some((card) => {
+        const m = card.querySelector('[data-drive], [data-yt]');
+        const id = m && (m.getAttribute('data-drive') || m.getAttribute('data-yt'));
+        return !!id && !ids.has(id);
+      });
+      if (!hasRest) more.remove();
+    });
+  }
+
+  // Lee las tarjetas reales de la página de categoría. Al agregar videos nuevos a
+  // reels.html etc. aparecen aquí automáticamente (sin tocar el home).
+  function fetchCategoryCards(category) {
+    const cfg = featuredWork[category];
+    if (!cfg) return Promise.resolve([]);
+    if (catCardsCache[category]) return Promise.resolve(catCardsCache[category]);
+    return fetch(cfg.href, { cache: 'force-cache' })
+      .then((r) => (r.ok ? r.text() : Promise.reject(new Error('HTTP ' + r.status))))
+      .then((html) => {
+        const doc = new DOMParser().parseFromString(html, 'text/html');
+        catCardsCache[category] = Array.from(doc.querySelectorAll('.video-card'));
+        return catCardsCache[category];
+      })
+      .catch(() => []);
+  }
+
+  function gridClassFor(category) {
+    const cfg = featuredWork[category] || {};
+    if (cfg.grid) return ' full-grid--' + cfg.grid;
+    if ((cfg.items || []).length <= 1) return ' full-grid--center';
+    return '';
+  }
+
+  // Click en un tile del ALL: TODOS los videos de la categoría, sin destacados ni SEE MORE
+  function renderFullOnly(category) {
+    if (!filterPanel) return;
+    currentCategory = category;
+    expandedCategory = category;
+    filterPanel.innerHTML = '<div class="full-grid' + gridClassFor(category) + '"></div>';
+    filterPanel.hidden = false;
+    const gridEl = filterPanel.firstElementChild;
+    fetchCategoryCards(category).then((cards) => {
+      if (currentCategory !== category) return; // el usuario ya cambió de filtro
+      if (!cards.length) {
+        filterPanel.innerHTML = '<div class="featured-empty" data-i18n="filter.empty">CONTENT BEING UPDATED — CHECK BACK SOON</div>';
+      } else {
+        cards.forEach((card) => {
+          const clone = card.cloneNode(true);
+          gridEl.appendChild(clone);
+          observeFade(clone);
+        });
+      }
+      if (currentLang) setLanguage(currentLang);
+    });
+  }
+
+  // SEE MORE (o la flecha ↗ de un destacado): despliega el resto de videos aquí mismo
+  function expandCurrentCategory() {
+    const category = currentCategory;
+    if (!category || !filterPanel || expandedCategory === category) return;
+    const cfg = featuredWork[category];
+    const more = filterPanel.querySelector('.featured-more');
+    if (!cfg) return;
+    expandedCategory = category;
+    fetchCategoryCards(category).then((cards) => {
+      if (currentCategory !== category) return;
+      if (!cards.length) { expandedCategory = null; return; } // fallo de red: conserva el botón
+      const ids = new Set(cfg.items.map((it) => it.drive || it.yt).filter(Boolean));
+      const rest = cards.filter((card) => {
+        const m = card.querySelector('[data-drive], [data-yt]');
+        const id = m && (m.getAttribute('data-drive') || m.getAttribute('data-yt'));
+        return !id || !ids.has(id);
+      });
+      if (rest.length) {
+        let gridEl = filterPanel.querySelector('.full-grid');
+        if (!gridEl) {
+          gridEl = document.createElement('div');
+          gridEl.className = 'full-grid' + gridClassFor(category);
+          if (more) { more.parentNode.insertBefore(gridEl, more); } else { filterPanel.appendChild(gridEl); }
+        }
+        rest.forEach((card) => {
+          const clone = card.cloneNode(true);
+          gridEl.appendChild(clone);
+          observeFade(clone);
+        });
+      }
+      if (more) more.remove();
+      if (currentLang) setLanguage(currentLang);
+    }).catch(() => { expandedCategory = null; });
   }
 
   if (filterBar && workGrid) {
     const filterBtns = filterBar.querySelectorAll('.filter-btn');
     const allCards = workGrid.querySelectorAll('.work-card');
 
+    function setActivePill(category) {
+      filterBtns.forEach((b) => b.classList.toggle('active', b.getAttribute('data-filter') === category));
+    }
+
+    function showAllView() {
+      currentCategory = null;
+      expandedCategory = null;
+      if (filterPanel) { filterPanel.hidden = true; filterPanel.innerHTML = ''; }
+      workGrid.style.display = '';
+      allCards.forEach((card) => card.classList.remove('hidden'));
+
+      const visibleCards = workGrid.querySelectorAll('.work-card:not(.hidden)');
+      visibleCards.forEach((card, i) => {
+        card.style.transitionDelay = `${i * 0.06}s`;
+        card.classList.remove('visible');
+        requestAnimationFrame(() => {
+          requestAnimationFrame(() => {
+            card.classList.add('visible');
+          });
+        });
+      });
+    }
+
+    function showCategoryView(category, direct) {
+      allCards.forEach((card) => card.classList.add('hidden'));
+      workGrid.style.display = 'none';
+      if (direct) {
+        renderFullOnly(category);
+      } else {
+        renderFeaturedPanel(category);
+      }
+    }
+
+    // direct=false → píldora: 5 destacados + SEE MORE · direct=true → tile: lista completa
+    function activateFilter(category, direct) {
+      if (category === 'all') { setActivePill('all'); showAllView(); return; }
+      if (!featuredWork[category]) return;
+      setActivePill(category);
+      showCategoryView(category, direct);
+    }
+
+    // Píldoras de filtro
     filterBtns.forEach((btn) => {
       btn.addEventListener('click', () => {
-        const filter = btn.getAttribute('data-filter');
-
-        // Update active button
-        filterBtns.forEach((b) => b.classList.remove('active'));
-        btn.classList.add('active');
-
-        if (filter === 'all') {
-          // Original view: category cards
-          if (filterPanel) { filterPanel.hidden = true; filterPanel.innerHTML = ''; }
-          workGrid.style.display = '';
-          allCards.forEach((card) => card.classList.remove('hidden'));
-
-          const visibleCards = workGrid.querySelectorAll('.work-card:not(.hidden)');
-          visibleCards.forEach((card, i) => {
-            card.style.transitionDelay = `${i * 0.06}s`;
-            card.classList.remove('visible');
-            requestAnimationFrame(() => {
-              requestAnimationFrame(() => {
-                card.classList.add('visible');
-              });
-            });
-          });
-        } else {
-          // Featured view: 5 highlighted videos + see more
-          allCards.forEach((card) => card.classList.add('hidden'));
-          workGrid.style.display = 'none';
-          renderFeaturedPanel(filter);
-        }
+        activateFilter(btn.getAttribute('data-filter'), false);
       });
     });
+
+    // Tiles de la vista ALL: cambian a la categoría EN ESTA PÁGINA con todos sus videos
+    workGrid.addEventListener('click', (e) => {
+      const tile = e.target.closest('.work-card[data-category]');
+      if (!tile) return;
+      e.preventDefault(); // nunca navega a reels.html etc.
+      activateFilter(tile.getAttribute('data-category'), true);
+      if (filterBar) filterBar.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+
+    // Panel de filtro: SEE MORE y ↗ expanden la lista en el sitio;
+    // póster o título de una tarjeta = modal del video (sin salir de la página)
+    if (filterPanel) {
+      filterPanel.addEventListener('click', (e) => {
+        const more = e.target.closest('.featured-more');
+        if (more) { e.preventDefault(); expandCurrentCategory(); return; }
+
+        const card = e.target.closest('.featured-card, .video-card');
+        if (!card || !filterPanel.contains(card)) return;
+        if (e.target.closest('.card-enter')) { e.preventDefault(); expandCurrentCategory(); return; }
+        if (e.target.closest('[data-drive], [data-yt]')) return; // la delegación global ya abre el modal
+        const media = card.querySelector('[data-drive], [data-yt]');
+        if (media) {
+          e.preventDefault();
+          openVideoModal(
+            media.hasAttribute('data-yt') ? 'yt' : 'drive',
+            media.getAttribute('data-yt') || media.getAttribute('data-drive'),
+            cardTitle(card),
+            videoAR(media)
+          );
+        }
+      });
+    }
   }
 
   function updateFilterActiveText() {
@@ -767,20 +917,24 @@
   // INTERSECTION OBSERVER — FADE UP
   // ==========================================
   const fadeEls = document.querySelectorAll('.fade-up');
-  if (fadeEls.length > 0) {
-    const fadeObserver = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          fadeObserver.unobserve(entry.target);
-        }
-      });
-    }, {
-      threshold: 0.1,
-      rootMargin: '0px 0px -60px 0px',
-    });
+  const fadeObserver = ('IntersectionObserver' in window)
+    ? new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            fadeObserver.unobserve(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.1,
+        rootMargin: '0px 0px -60px 0px',
+      })
+    : null;
+  if (fadeObserver) fadeEls.forEach((el) => fadeObserver.observe(el));
 
-    fadeEls.forEach((el) => fadeObserver.observe(el));
+  // Tarjetas insertadas dinámicamente (lista completa tras SEE MORE o click en tile)
+  function observeFade(el) {
+    if (fadeObserver) { fadeObserver.observe(el); } else { el.classList.add('visible'); }
   }
 
   // ==========================================
