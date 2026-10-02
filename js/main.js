@@ -736,19 +736,114 @@
       pulseCursor();
     });
 
-    // RUEDITA (botón central): el preventDefault bloquea el autoscroll/clip nativo
-    // que superponía el cursor default (captura del usuario). Además la rueda
-    // reacciona con el ripple+pulso propio: el cursor "cambia" con el estilo de la página.
+    // ==========================================
+    // RUEDITA (botón central) → AUTOSCROLL CUSTOM con el ESTILO del cursor.
+    // El preventDefault sigue bloqueando el autoscroll/clip nativo (que
+    // superponía el cursor default, captura del usuario) y la pestaña nueva;
+    // en su lugar se activa el desplazamiento rápido propio: el ancla queda
+    // donde se pulsó (anillo + guía en accent, como el cursor) y el glyph del
+    // cursor cambia a flechas dobles. A mayor distancia del ancla, más
+    // velocidad (zona muerta de 10 px, máx. 3800 px/s). Se apaga con clic
+    // izquierdo, otra ruedita, wheel, Esc, al salir de la ventana/pestaña o
+    // con modal abierto. Solo escritorio (>768 px, donde vive el cursor custom).
+    // ==========================================
+    const scrollEl = document.createElement('div');
+    scrollEl.className = 'cursor-scroll';
+    scrollEl.innerHTML = '<span class="cs-ring"></span><span class="cs-guide"></span>';
+    document.body.appendChild(scrollEl);
+
+    const asGlyph = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+    asGlyph.setAttribute('class', 'c-scroll');
+    asGlyph.setAttribute('width', '30');
+    asGlyph.setAttribute('height', '30');
+    asGlyph.setAttribute('viewBox', '0 0 24 24');
+    asGlyph.innerHTML =
+      '<path d="M12 4l6 7H6z" fill="var(--accent)" stroke="var(--accent)" stroke-width="1" stroke-linejoin="round"/>' +
+      '<path d="M12 20l6-7H6z" fill="var(--accent)" stroke="var(--accent)" stroke-width="1" stroke-linejoin="round"/>';
+    cursorEl.appendChild(asGlyph);
+
+    const AS_DEAD = 10;   // zona muerta central (px)
+    const AS_K = 16;      // px/s de velocidad por px de distancia al ancla
+    const AS_MAX = 3800;  // velocidad máxima (px/s)
+    let asActive = false;
+    let asSpeed = 0;      // px/s firmados (negativo = subir)
+    let asAnchorY = 0;
+    let asTimer = null;
+    let asLastTick = 0;
+
+    const asStop = () => {
+      if (!asActive && !asTimer) return;
+      asActive = false;
+      asSpeed = 0;
+      document.body.classList.remove('as-active', 'as-up', 'as-down');
+      scrollEl.style.setProperty('--cs-len', '0px');
+      if (asTimer) { clearInterval(asTimer); asTimer = null; }
+    };
+
+    const asTick = () => {
+      const now = performance.now();
+      const dt = Math.min((now - asLastTick) / 1000, 0.1); // tope: sin saltos tras pausas
+      asLastTick = now;
+      if (!asActive || !asSpeed) return;
+      window.scrollBy(0, asSpeed * dt);
+    };
+
+    const asMove = (y) => {
+      if (!asActive) return;
+      const dy = y - asAnchorY;
+      const ad = Math.abs(dy);
+      if (ad <= AS_DEAD) {
+        asSpeed = 0;
+        document.body.classList.remove('as-up', 'as-down');
+      } else {
+        asSpeed = Math.min((ad - AS_DEAD) * AS_K, AS_MAX) * (dy < 0 ? -1 : 1);
+        document.body.classList.toggle('as-up', dy < 0);
+        document.body.classList.toggle('as-down', dy > 0);
+      }
+      scrollEl.style.setProperty('--cs-len', ad + 'px');
+    };
+
+    const asStart = (x, y) => {
+      if (window.matchMedia('(max-width: 768px)').matches) return; // cursor custom solo en desktop
+      if (document.body.classList.contains('modal-open')) return;
+      const cm = document.getElementById('clientModal');
+      if (cm && cm.classList.contains('open')) return;
+      asActive = true;
+      asAnchorY = y;
+      asSpeed = 0;
+      asLastTick = performance.now();
+      document.body.classList.add('as-active');
+      document.body.classList.remove('as-up', 'as-down');
+      scrollEl.style.transform = `translate3d(${x}px, ${y}px, 0)`;
+      scrollEl.style.setProperty('--cs-len', '0px');
+      if (!asTimer) asTimer = setInterval(asTick, 16);
+      asMove(y); // ya hay dirección si se pulsó con el puntero descentrado
+    };
+
     document.addEventListener('mousedown', (e) => {
       if (e.button === 1) {
-        e.preventDefault();
+        e.preventDefault(); // nunca autoscroll/clip nativo ni pestaña nueva
         spawnRipple(e.clientX, e.clientY);
         pulseCursor();
+        if (asActive) { asStop(); } else { asStart(e.clientX, e.clientY); }
+      } else if (e.button === 0 && asActive) {
+        asStop(); // clic izquierdo = soltar el modo
       }
     }, { passive: false });
 
     document.addEventListener('auxclick', (e) => {
       if (e.button === 1) e.preventDefault(); // sin acción nativa del botón central
+    });
+
+    document.addEventListener('mousemove', (e) => {
+      if (asActive) asMove(e.clientY);
+    });
+
+    document.addEventListener('wheel', () => { if (asActive) asStop(); }, { passive: true });
+    document.addEventListener('mouseleave', () => { if (asActive) asStop(); });
+    document.addEventListener('visibilitychange', () => { if (document.hidden) asStop(); });
+    document.addEventListener('keydown', (e) => {
+      if (asActive && e.key === 'Escape') asStop();
     });
 
     // Hover effect (guarded against flicker when moving between child elements)
