@@ -81,7 +81,7 @@ button {
   pointer-events: none;
 }
 
-/* --- Custom Cursor (arrow like creatoroly) --- */
+/* --- Custom Cursor (flecha + mano, estilo de la página) --- */
 .cursor-arrow {
   position: fixed;
   top: 0;
@@ -93,34 +93,63 @@ button {
 }
 
 .cursor-arrow svg {
+  position: absolute;
+  top: 0;
+  left: 0;
   display: block;
-  width: 30px;
-  height: 30px;
-  /* Tip of the arrow path is at (5,3) of the 24×24 viewBox = (6.25px, 3.75px)
-     at 30px — shift the svg so the TIP sits exactly on the pointer. */
-  transform: translate(-6.25px, -3.75px);
-  transform-origin: 6.25px 3.75px; /* pulse scales around the tip */
-  transition: width 0.25s var(--ease), height 0.25s var(--ease), opacity 0.2s var(--ease);
+  transition: opacity 0.15s var(--ease);
   filter:
     drop-shadow(0 0 1.5px rgba(0, 0, 0, 0.95))
     drop-shadow(0 2px 6px rgba(0, 0, 0, 0.65))
     drop-shadow(0 0 6px rgba(100, 181, 246, 0.35));
 }
 
-body.cursor-hover .cursor-arrow svg {
-  width: 38px;
-  height: 38px;
+/* Flecha (estado normal): la punta (5,3) del viewBox a 30px = (6.25px, 3.75px)
+   se desplaza para caer exactamente sobre el puntero. */
+.cursor-arrow .c-arrow {
+  width: 30px;
+  height: 30px;
+  transform: translate(-6.25px, -3.75px);
+  transform-origin: 6.25px 3.75px; /* pulse scales around the tip */
+}
+
+/* Mano (hover sobre videos/enlaces/botones): yema del dedo (10.5,1.6) a 32px
+   = (14px, 2.13px) sobre el puntero — mismo relleno/contorno que la flecha. */
+.cursor-arrow .c-hand {
+  width: 32px;
+  height: 32px;
+  transform: translate(-14px, -2.13px);
+  transform-origin: 14px 2.13px;
+  opacity: 0;
+}
+
+body.cursor-hover .cursor-arrow .c-arrow {
+  opacity: 0;
+}
+
+body.cursor-hover .cursor-arrow .c-hand {
+  opacity: 1;
 }
 
 /* Cursor click pulse (animates the svg so the JS-driven position transform is untouched) */
-body.cursor-click .cursor-arrow svg {
+body.cursor-click .cursor-arrow .c-arrow {
   animation: cursorPulse 0.3s var(--ease);
+}
+
+body.cursor-click .cursor-arrow .c-hand {
+  animation: cursorPulseHand 0.3s var(--ease);
 }
 
 @keyframes cursorPulse {
   0% { transform: translate(-6.25px, -3.75px) scale(1); }
   50% { transform: translate(-6.25px, -3.75px) scale(0.6); }
   100% { transform: translate(-6.25px, -3.75px) scale(1); }
+}
+
+@keyframes cursorPulseHand {
+  0% { transform: translate(-14px, -2.13px) scale(1); }
+  50% { transform: translate(-14px, -2.13px) scale(0.7); }
+  100% { transform: translate(-14px, -2.13px) scale(1); }
 }
 
 /* Cursor ripple on click */
@@ -1404,7 +1433,7 @@ body.cursor-click .cursor-arrow svg {
 
 /* --- Marquee client items: click-to-open affordance --- */
 .marquee-item[data-client] {
-  cursor: pointer;
+  cursor: none; /* cursor custom: la mano aparece vía body.cursor-hover */
   transition: color 0.3s var(--ease);
 }
 
@@ -2144,7 +2173,7 @@ body.cursor-click .cursor-arrow svg {
 }
 
 .yt-lite {
-  cursor: pointer;
+  cursor: none; /* cursor custom: la mano aparece vía body.cursor-hover */
 }
 
 .yt-lite:hover .yt-playbtn {
@@ -2164,11 +2193,11 @@ body.cursor-click .cursor-arrow svg {
 
 /* --- Google Drive videos: poster + click para cargar (sin autoplay) --- */
 .card-media--drive {
-  cursor: pointer;
+  cursor: none; /* cursor custom: la mano aparece vía body.cursor-hover */
 }
 
 .card-media--drive.is-loaded {
-  cursor: default;
+  cursor: none;
 }
 
 .card-media--drive iframe {

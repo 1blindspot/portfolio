@@ -704,69 +704,56 @@
   }
 
   // ==========================================
-  // CUSTOM CURSOR (arrow with direction)
+  // CUSTOM CURSOR — flecha sin delay + mano al hover
   // ==========================================
   const cursorEl = document.getElementById('cursorArrow');
-  let mouseX = 0, mouseY = 0;
-  let cursorX = 0, cursorY = 0;
-  let prevMouseX = 0, prevMouseY = 0;
-  let angle = 0;
-  const CURSOR_ROTATE = false; // ← true = restaurar la rotación del cursor por dirección del mouse
-  let lastFrameTime = performance.now();
 
   if (cursorEl) {
+    // Seguimiento DIRECTO (sin lerp ni requestAnimationFrame): el cursor reacciona
+    // al instante, como un cursor nativo, sin delay perceptible.
     document.addEventListener('mousemove', (e) => {
-      mouseX = e.clientX;
-      mouseY = e.clientY;
+      // Container top-left = real pointer position; each svg is offset in CSS
+      // so its TIP (not its center) lands exactly on the pointer.
+      cursorEl.style.transform = `translate3d(${e.clientX}px, ${e.clientY}px, 0)`;
     });
 
-    function animateCursor(now) {
-      // Frame-rate independent smoothing (normalized to 60fps)
-      const dt = Math.min(now - lastFrameTime, 64); // clamp after tab switches
-      lastFrameTime = now;
-      const k = 1 - Math.pow(1 - 0.3, dt / 16.67);   // position ease (snappy, minimal lag for accurate clicks)
-      const ka = CURSOR_ROTATE ? 1 - Math.pow(1 - 0.24, dt / 16.67) : 0; // rotation ease (0 = sin rotación)
-
-      cursorX += (mouseX - cursorX) * k;
-      cursorY += (mouseY - cursorY) * k;
-
-      // Calculate direction angle from mouse movement
-      const dx = mouseX - prevMouseX;
-      const dy = mouseY - prevMouseY;
-      if (Math.abs(dx) > 0.6 || Math.abs(dy) > 0.6) {
-        const target = Math.atan2(dy, dx) * (180 / Math.PI) + 90;
-        // Shortest-path angle interpolation (no 360° spin on direction flips)
-        const diff = ((target - angle + 540) % 360) - 180;
-        angle += diff * ka;
-      }
-      prevMouseX += (mouseX - prevMouseX) * 0.3;
-      prevMouseY += (mouseY - prevMouseY) * 0.3;
-
-      // GPU-composited transform instead of left/top (no layout per frame)
-      // Container top-left = real pointer position; the svg is offset in CSS
-      // so the arrow's TIP (not its center) lands exactly on the pointer.
-      cursorEl.style.transform =
-        `translate3d(${cursorX}px, ${cursorY}px, 0) rotate(${angle}deg)`;
-      requestAnimationFrame(animateCursor);
-    }
-    requestAnimationFrame(animateCursor);
-
-    // Click ripple + pulse effect
-    document.addEventListener('click', (e) => {
-      // Ripple
+    const spawnRipple = (x, y) => {
       const ripple = document.createElement('div');
       ripple.className = 'cursor-ripple';
-      ripple.style.left = e.clientX + 'px';
-      ripple.style.top = e.clientY + 'px';
+      ripple.style.left = x + 'px';
+      ripple.style.top = y + 'px';
       document.body.appendChild(ripple);
       ripple.addEventListener('animationend', () => ripple.remove());
-      // Pulse on arrow
+    };
+    const pulseCursor = () => {
       document.body.classList.add('cursor-click');
       setTimeout(() => document.body.classList.remove('cursor-click'), 300);
+    };
+
+    // Click ripple + pulse effect (botón principal)
+    document.addEventListener('click', (e) => {
+      spawnRipple(e.clientX, e.clientY);
+      pulseCursor();
+    });
+
+    // RUEDITA (botón central): el preventDefault bloquea el autoscroll/clip nativo
+    // que superponía el cursor default (captura del usuario). Además la rueda
+    // reacciona con el ripple+pulso propio: el cursor "cambia" con el estilo de la página.
+    document.addEventListener('mousedown', (e) => {
+      if (e.button === 1) {
+        e.preventDefault();
+        spawnRipple(e.clientX, e.clientY);
+        pulseCursor();
+      }
+    }, { passive: false });
+
+    document.addEventListener('auxclick', (e) => {
+      if (e.button === 1) e.preventDefault(); // sin acción nativa del botón central
     });
 
     // Hover effect (guarded against flicker when moving between child elements)
-    const hoverSelector = 'a, button, .work-card, .copy-email-btn, .filter-btn, .lang-toggle, .yt-lite, .client-item, .tool';
+    // → la mano custom reemplaza a la flecha sobre cualquier elemento accionable
+    const hoverSelector = 'a, button, video, .work-card, .video-card, .featured-card, .card-media, .copy-email-btn, .filter-btn, .lang-toggle, .yt-lite, .client-item, .tool';
     document.addEventListener('mouseover', (e) => {
       if (e.target.closest(hoverSelector)) {
         document.body.classList.add('cursor-hover');
