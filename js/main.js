@@ -391,12 +391,12 @@
       href: 'eventcorp.html',
       grid: 'wide',
       items: [
-        { drive: '1rx8SK2V4S0Ng_nZynZpHZWn4P6YxqfCo', poster: 'img/work/ec-1.jpg', ar: 'ar-16x9', t: 'A BEAUTIFUL LIFE', c: 'CORPORATE PROMO', cKey: 'type.corp' },
+        { drive: '1B8ix4DSrms_BmOyaBPky-Ll89jKQ_D-P', poster: 'img/work/ec-8.jpg', ar: 'ar-16x9', t: 'IONNA', c: 'EVENT FILM', cKey: 'type.event' },
         { drive: '1KGnHNExp_-w_Vw90CYTwdXQCx4saThbg', poster: 'img/work/ec-2.jpg', ar: 'ar-16x9', t: 'ACADIA', c: 'EVENT FILM', cKey: 'type.event' },
+        { drive: '1rx8SK2V4S0Ng_nZynZpHZWn4P6YxqfCo', poster: 'img/work/ec-1.jpg', ar: 'ar-16x9', t: 'A BEAUTIFUL LIFE', c: 'CORPORATE PROMO', cKey: 'type.corp' },
         { drive: '1kYbUNuI6Db5pXNOFBRm5ULfmOMOus8dv', poster: 'img/work/ec-3.jpg', ar: 'ar-16x9', t: 'APARTMENT LIST', c: 'EVENT FILM', cKey: 'type.event' },
         { drive: '1b77GXYCcqE6Ems2cCoEu3n2lZosOaBCC', poster: 'img/work/ec-4.jpg', ar: 'ar-16x9', t: 'BOLDER BARBERS', c: 'CORPORATE PROMO', cKey: 'type.corp' },
-        { drive: '1sEi8PpzymCyhEYEUk-71bNdDOJRK99O4', poster: 'img/work/ec-5.jpg', ar: 'ar-16x9', t: 'CAPSTONE COLLEGE', c: 'CORPORATE PROMO', cKey: 'type.corp' },
-        { drive: '1Tei1RB7377kRUZpaxkzQWpJ2_AOLOwdV', poster: 'img/work/ec-6.jpg', ar: 'ar-16x9', t: 'CORONADO', c: 'EVENT FILM', cKey: 'type.event' }
+        { drive: '1sEi8PpzymCyhEYEUk-71bNdDOJRK99O4', poster: 'img/work/ec-5.jpg', ar: 'ar-16x9', t: 'CAPSTONE COLLEGE', c: 'CORPORATE PROMO', cKey: 'type.corp' }
       ]
     },
     youtube: {
