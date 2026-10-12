@@ -391,12 +391,12 @@
       href: 'eventcorp.html',
       grid: 'wide',
       items: [
-        { drive: '1B8ix4DSrms_BmOyaBPky-Ll89jKQ_D-P', poster: 'img/work/ec-8.jpg', ar: 'ar-16x9', t: 'IONNA', c: 'EVENT FILM', cKey: 'type.event' },
-        { drive: '1KGnHNExp_-w_Vw90CYTwdXQCx4saThbg', poster: 'img/work/ec-2.jpg', ar: 'ar-16x9', t: 'ACADIA', c: 'EVENT FILM', cKey: 'type.event' },
         { drive: '1rx8SK2V4S0Ng_nZynZpHZWn4P6YxqfCo', poster: 'img/work/ec-1.jpg', ar: 'ar-16x9', t: 'A BEAUTIFUL LIFE', c: 'CORPORATE PROMO', cKey: 'type.corp' },
+        { drive: '1KGnHNExp_-w_Vw90CYTwdXQCx4saThbg', poster: 'img/work/ec-2.jpg', ar: 'ar-16x9', t: 'ACADIA', c: 'EVENT FILM', cKey: 'type.event' },
         { drive: '1kYbUNuI6Db5pXNOFBRm5ULfmOMOus8dv', poster: 'img/work/ec-3.jpg', ar: 'ar-16x9', t: 'APARTMENT LIST', c: 'EVENT FILM', cKey: 'type.event' },
         { drive: '1b77GXYCcqE6Ems2cCoEu3n2lZosOaBCC', poster: 'img/work/ec-4.jpg', ar: 'ar-16x9', t: 'BOLDER BARBERS', c: 'CORPORATE PROMO', cKey: 'type.corp' },
-        { drive: '1sEi8PpzymCyhEYEUk-71bNdDOJRK99O4', poster: 'img/work/ec-5.jpg', ar: 'ar-16x9', t: 'CAPSTONE COLLEGE', c: 'CORPORATE PROMO', cKey: 'type.corp' }
+        { drive: '1sEi8PpzymCyhEYEUk-71bNdDOJRK99O4', poster: 'img/work/ec-5.jpg', ar: 'ar-16x9', t: 'CAPSTONE COLLEGE', c: 'CORPORATE PROMO', cKey: 'type.corp' },
+        { drive: '1Tei1RB7377kRUZpaxkzQWpJ2_AOLOwdV', poster: 'img/work/ec-6.jpg', ar: 'ar-16x9', t: 'CORONADO', c: 'EVENT FILM', cKey: 'type.event' }
       ]
     },
     youtube: {
@@ -531,14 +531,11 @@
 
   // Lee las tarjetas reales de la página de categoría. Al agregar videos nuevos a
   // reels.html etc. aparecen aquí automáticamente (sin tocar el home).
-  // cache:'no-cache' = revalida SIEMPRE contra el servidor (GitHub Pages responde 304
-  // barato si no cambió). OJO: 'force-cache' servía la copia cacheada del navegador
-  // INDEFINIDAMENTE aunque el HTML hubiera cambiado en el servidor (2026-10-12).
   function fetchCategoryCards(category) {
     const cfg = featuredWork[category];
     if (!cfg) return Promise.resolve([]);
     if (catCardsCache[category]) return Promise.resolve(catCardsCache[category]);
-    return fetch(cfg.href, { cache: 'no-cache' })
+    return fetch(cfg.href, { cache: 'force-cache' })
       .then((r) => (r.ok ? r.text() : Promise.reject(new Error('HTTP ' + r.status))))
       .then((html) => {
         const doc = new DOMParser().parseFromString(html, 'text/html');
